@@ -1,0 +1,566 @@
+{
+  "project" : "singer",
+  "breakingCommit" : "3572a1ecc0154c61e05505aed56055b9c5e539a6",
+  "dependency" : {
+    "groupId" : "org.apache.thrift",
+    "artifactId" : "libthrift",
+    "previousVersion" : "0.12.0",
+    "newVersion" : "0.16.0",
+    "previousJar" : "/home/kth/Documents/last_transformer/output/3572a1ecc0154c61e05505aed56055b9c5e539a6/libthrift-0.12.0.jar",
+    "newJar" : "/home/kth/Documents/last_transformer/output/3572a1ecc0154c61e05505aed56055b9c5e539a6/libthrift-0.16.0.jar"
+  },
+  "classification" : {
+    "datasetCategory" : "COMPILATION_FAILURE",
+    "inferredCategory" : "COMPILATION_FAILURE",
+    "logFile" : "/home/kth/Documents/last_transformer/output/3572a1ecc0154c61e05505aed56055b9c5e539a6/singer/3572a1ecc0154c61e05505aed56055b9c5e539a6.log",
+    "classifierReport" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini/3572a1ecc0154c61e05505aed56055b9c5e539a6/breaking-classifier-report.json"
+  },
+  "files" : [ {
+    "filePath" : "/singer/thrift-logger/src/main/java/com/pinterest/singer/client/logback/AppenderUtils.java",
+    "errors" : [ {
+      "lineNumber" : 30,
+      "columnNumber" : 35,
+      "message" : "cannot find symbol",
+      "details" : [ "symbol:   class TFastFramedTransport", "location: package org.apache.thrift.transport" ],
+      "status" : "SUCCESS",
+      "errorMessage" : null,
+      "changeImpact" : {
+        "projectPath" : "/home/kth/Documents/last_transformer/output/3572a1ecc0154c61e05505aed56055b9c5e539a6/singer",
+        "sourceFile" : "/home/kth/Documents/last_transformer/output/3572a1ecc0154c61e05505aed56055b9c5e539a6/singer/thrift-logger/src/main/java/com/pinterest/singer/client/logback/AppenderUtils.java",
+        "lineNumber" : 30,
+        "oldJar" : "/home/kth/Documents/last_transformer/output/3572a1ecc0154c61e05505aed56055b9c5e539a6/libthrift-0.12.0.jar",
+        "newJar" : "/home/kth/Documents/last_transformer/output/3572a1ecc0154c61e05505aed56055b9c5e539a6/libthrift-0.16.0.jar",
+        "generatedAt" : "2025-12-30T14:53:46.533606942Z",
+        "constructs" : [ {
+          "constructType" : "IMPORT",
+          "signature" : "org.apache.thrift.transport.TFastFramedTransport",
+          "dependency" : {
+            "origin" : "UNKNOWN",
+            "groupId" : null,
+            "artifactId" : null,
+            "version" : null,
+            "coordinates" : "UNKNOWN",
+            "sourcePath" : "/home/kth/.m2/repository/org/apache/thrift/libthrift/0.12.0/libthrift-0.12.0.jar"
+          },
+          "lineNumber" : 30,
+          "codeLine" : "import org.apache.thrift.transport.TFastFramedTransport;",
+          "apiChanges" : [ {
+            "elementType" : "CLASS",
+            "matchType" : "CLASS",
+            "name" : "org.apache.thrift.transport.TFastFramedTransport",
+            "declaringType" : "org.apache.thrift.transport.TFastFramedTransport",
+            "qualifiedSignature" : "org.apache.thrift.transport.TFastFramedTransport",
+            "changeStatus" : "REMOVED",
+            "binaryCompatible" : false,
+            "sourceCompatible" : false,
+            "compatibilityChanges" : [ {
+              "type" : "CLASS_REMOVED",
+              "binaryCompatible" : false,
+              "sourceCompatible" : false,
+              "semanticVersionImpact" : "MAJOR"
+            } ],
+            "signature" : null,
+            "value" : null,
+            "parameterTypes" : null,
+            "changedMemberCount" : 23
+          } ]
+        } ]
+      }
+    }, {
+      "lineNumber" : 63,
+      "columnNumber" : 29,
+      "message" : "cannot find symbol",
+      "details" : [ "symbol:   class TFastFramedTransport", "location: class com.pinterest.singer.client.logback.AppenderUtils.LogMessageEncoder" ],
+      "status" : "SUCCESS",
+      "errorMessage" : null,
+      "changeImpact" : {
+        "projectPath" : "/home/kth/Documents/last_transformer/output/3572a1ecc0154c61e05505aed56055b9c5e539a6/singer",
+        "sourceFile" : "/home/kth/Documents/last_transformer/output/3572a1ecc0154c61e05505aed56055b9c5e539a6/singer/thrift-logger/src/main/java/com/pinterest/singer/client/logback/AppenderUtils.java",
+        "lineNumber" : 63,
+        "oldJar" : "/home/kth/Documents/last_transformer/output/3572a1ecc0154c61e05505aed56055b9c5e539a6/libthrift-0.12.0.jar",
+        "newJar" : "/home/kth/Documents/last_transformer/output/3572a1ecc0154c61e05505aed56055b9c5e539a6/libthrift-0.16.0.jar",
+        "generatedAt" : "2025-12-30T14:53:46.535140382Z",
+        "constructs" : [ {
+          "constructType" : "FIELD_ACCESS",
+          "signature" : "com.pinterest.singer.client.logback.AppenderUtils$LogMessageEncoder::framedTransport",
+          "dependency" : {
+            "origin" : "PROJECT_SOURCE",
+            "groupId" : null,
+            "artifactId" : null,
+            "version" : null,
+            "coordinates" : "PROJECT_SOURCE",
+            "sourcePath" : "thrift-logger/src/main/java/com/pinterest/singer/client/logback/AppenderUtils.java"
+          },
+          "lineNumber" : 63,
+          "codeLine" : "      framedTransport = new TFastFramedTransport(new TIOStreamTransport(os),",
+          "apiChanges" : [ ]
+        }, {
+          "constructType" : "CONSTRUCTOR_CALL",
+          "signature" : "org.apache.thrift.transport.TFastFramedTransport#<init>(org.apache.thrift.transport.TTransport, int)",
+          "dependency" : {
+            "origin" : "UNKNOWN",
+            "groupId" : null,
+            "artifactId" : null,
+            "version" : null,
+            "coordinates" : "UNKNOWN",
+            "sourcePath" : "/home/kth/.m2/repository/org/apache/thrift/libthrift/0.12.0/libthrift-0.12.0.jar"
+          },
+          "lineNumber" : 63,
+          "codeLine" : "      framedTransport = new TFastFramedTransport(new TIOStreamTransport(os),",
+          "apiChanges" : [ {
+            "elementType" : "CONSTRUCTOR",
+            "matchType" : "EXACT_SIGNATURE",
+            "name" : "TFastFramedTransport",
+            "declaringType" : "org.apache.thrift.transport.TFastFramedTransport",
+            "qualifiedSignature" : "org.apache.thrift.transport.TFastFramedTransport.TFastFramedTransport(org.apache.thrift.transport.TTransport, int)",
+            "changeStatus" : "REMOVED",
+            "binaryCompatible" : false,
+            "sourceCompatible" : false,
+            "compatibilityChanges" : [ {
+              "type" : "CONSTRUCTOR_REMOVED",
+              "binaryCompatible" : false,
+              "sourceCompatible" : false,
+              "semanticVersionImpact" : "MAJOR"
+            } ],
+            "signature" : {
+              "oldValue" : "javassist.CtConstructor@5e165086[public TFastFramedTransport (Lorg/apache/thrift/transport/TTransport;I)V]",
+              "newValue" : null,
+              "changed" : true
+            },
+            "value" : {
+              "oldValue" : null,
+              "newValue" : null,
+              "changed" : false
+            },
+            "parameterTypes" : [ "org.apache.thrift.transport.TTransport", "int" ],
+            "changedMemberCount" : null
+          }, {
+            "elementType" : "CONSTRUCTOR",
+            "matchType" : "NAME_ONLY",
+            "name" : "TFastFramedTransport",
+            "declaringType" : "org.apache.thrift.transport.TFastFramedTransport",
+            "qualifiedSignature" : "org.apache.thrift.transport.TFastFramedTransport.TFastFramedTransport(org.apache.thrift.transport.TTransport)",
+            "changeStatus" : "REMOVED",
+            "binaryCompatible" : false,
+            "sourceCompatible" : false,
+            "compatibilityChanges" : [ {
+              "type" : "CONSTRUCTOR_REMOVED",
+              "binaryCompatible" : false,
+              "sourceCompatible" : false,
+              "semanticVersionImpact" : "MAJOR"
+            } ],
+            "signature" : {
+              "oldValue" : "javassist.CtConstructor@2128387c[public TFastFramedTransport (Lorg/apache/thrift/transport/TTransport;)V]",
+              "newValue" : null,
+              "changed" : true
+            },
+            "value" : {
+              "oldValue" : null,
+              "newValue" : null,
+              "changed" : false
+            },
+            "parameterTypes" : [ "org.apache.thrift.transport.TTransport" ],
+            "changedMemberCount" : null
+          }, {
+            "elementType" : "CONSTRUCTOR",
+            "matchType" : "NAME_ONLY",
+            "name" : "TFastFramedTransport",
+            "declaringType" : "org.apache.thrift.transport.TFastFramedTransport",
+            "qualifiedSignature" : "org.apache.thrift.transport.TFastFramedTransport.TFastFramedTransport(org.apache.thrift.transport.TTransport, int, int)",
+            "changeStatus" : "REMOVED",
+            "binaryCompatible" : false,
+            "sourceCompatible" : false,
+            "compatibilityChanges" : [ {
+              "type" : "CONSTRUCTOR_REMOVED",
+              "binaryCompatible" : false,
+              "sourceCompatible" : false,
+              "semanticVersionImpact" : "MAJOR"
+            } ],
+            "signature" : {
+              "oldValue" : "javassist.CtConstructor@4c0b1fc7[public TFastFramedTransport (Lorg/apache/thrift/transport/TTransport;II)V]",
+              "newValue" : null,
+              "changed" : true
+            },
+            "value" : {
+              "oldValue" : null,
+              "newValue" : null,
+              "changed" : false
+            },
+            "parameterTypes" : [ "org.apache.thrift.transport.TTransport", "int", "int" ],
+            "changedMemberCount" : null
+          }, {
+            "elementType" : "CONSTRUCTOR",
+            "matchType" : "NAME_AND_PARAMS_OTHER_CLASS",
+            "name" : "TFastFramedTransport",
+            "declaringType" : "org.apache.thrift.transport.layered.TFastFramedTransport",
+            "qualifiedSignature" : "org.apache.thrift.transport.layered.TFastFramedTransport.TFastFramedTransport(org.apache.thrift.transport.TTransport, int)",
+            "changeStatus" : "NEW",
+            "binaryCompatible" : true,
+            "sourceCompatible" : true,
+            "compatibilityChanges" : [ ],
+            "signature" : {
+              "oldValue" : null,
+              "newValue" : "javassist.CtConstructor@6edf3cf[public TFastFramedTransport (Lorg/apache/thrift/transport/TTransport;I)V]",
+              "changed" : true
+            },
+            "value" : {
+              "oldValue" : null,
+              "newValue" : null,
+              "changed" : false
+            },
+            "parameterTypes" : [ "org.apache.thrift.transport.TTransport", "int" ],
+            "changedMemberCount" : null
+          }, {
+            "elementType" : "CONSTRUCTOR",
+            "matchType" : "NAME_ONLY_OTHER_CLASS",
+            "name" : "TFastFramedTransport",
+            "declaringType" : "org.apache.thrift.transport.layered.TFastFramedTransport",
+            "qualifiedSignature" : "org.apache.thrift.transport.layered.TFastFramedTransport.TFastFramedTransport(org.apache.thrift.transport.TTransport)",
+            "changeStatus" : "NEW",
+            "binaryCompatible" : true,
+            "sourceCompatible" : true,
+            "compatibilityChanges" : [ ],
+            "signature" : {
+              "oldValue" : null,
+              "newValue" : "javassist.CtConstructor@29608e40[public TFastFramedTransport (Lorg/apache/thrift/transport/TTransport;)V]",
+              "changed" : true
+            },
+            "value" : {
+              "oldValue" : null,
+              "newValue" : null,
+              "changed" : false
+            },
+            "parameterTypes" : [ "org.apache.thrift.transport.TTransport" ],
+            "changedMemberCount" : null
+          }, {
+            "elementType" : "CONSTRUCTOR",
+            "matchType" : "NAME_ONLY_OTHER_CLASS",
+            "name" : "TFastFramedTransport",
+            "declaringType" : "org.apache.thrift.transport.layered.TFastFramedTransport",
+            "qualifiedSignature" : "org.apache.thrift.transport.layered.TFastFramedTransport.TFastFramedTransport(org.apache.thrift.transport.TTransport, int, int)",
+            "changeStatus" : "NEW",
+            "binaryCompatible" : true,
+            "sourceCompatible" : true,
+            "compatibilityChanges" : [ ],
+            "signature" : {
+              "oldValue" : null,
+              "newValue" : "javassist.CtConstructor@572a4dc[public TFastFramedTransport (Lorg/apache/thrift/transport/TTransport;II)V]",
+              "changed" : true
+            },
+            "value" : {
+              "oldValue" : null,
+              "newValue" : null,
+              "changed" : false
+            },
+            "parameterTypes" : [ "org.apache.thrift.transport.TTransport", "int", "int" ],
+            "changedMemberCount" : null
+          }, {
+            "elementType" : "CLASS",
+            "matchType" : "CLASS",
+            "name" : "org.apache.thrift.transport.TFastFramedTransport",
+            "declaringType" : "org.apache.thrift.transport.TFastFramedTransport",
+            "qualifiedSignature" : "org.apache.thrift.transport.TFastFramedTransport",
+            "changeStatus" : "REMOVED",
+            "binaryCompatible" : false,
+            "sourceCompatible" : false,
+            "compatibilityChanges" : [ {
+              "type" : "CLASS_REMOVED",
+              "binaryCompatible" : false,
+              "sourceCompatible" : false,
+              "semanticVersionImpact" : "MAJOR"
+            } ],
+            "signature" : null,
+            "value" : null,
+            "parameterTypes" : null,
+            "changedMemberCount" : 23
+          } ]
+        }, {
+          "constructType" : "TYPE_REFERENCE",
+          "signature" : "org.apache.thrift.transport.TFastFramedTransport",
+          "dependency" : {
+            "origin" : "UNKNOWN",
+            "groupId" : null,
+            "artifactId" : null,
+            "version" : null,
+            "coordinates" : "UNKNOWN",
+            "sourcePath" : "/home/kth/.m2/repository/org/apache/thrift/libthrift/0.12.0/libthrift-0.12.0.jar"
+          },
+          "lineNumber" : 63,
+          "codeLine" : "      framedTransport = new TFastFramedTransport(new TIOStreamTransport(os),",
+          "apiChanges" : [ {
+            "elementType" : "CLASS",
+            "matchType" : "CLASS",
+            "name" : "org.apache.thrift.transport.TFastFramedTransport",
+            "declaringType" : "org.apache.thrift.transport.TFastFramedTransport",
+            "qualifiedSignature" : "org.apache.thrift.transport.TFastFramedTransport",
+            "changeStatus" : "REMOVED",
+            "binaryCompatible" : false,
+            "sourceCompatible" : false,
+            "compatibilityChanges" : [ {
+              "type" : "CLASS_REMOVED",
+              "binaryCompatible" : false,
+              "sourceCompatible" : false,
+              "semanticVersionImpact" : "MAJOR"
+            } ],
+            "signature" : null,
+            "value" : null,
+            "parameterTypes" : null,
+            "changedMemberCount" : 23
+          } ]
+        }, {
+          "constructType" : "CONSTRUCTOR_CALL",
+          "signature" : "org.apache.thrift.transport.TIOStreamTransport#<init>(java.io.OutputStream)",
+          "dependency" : {
+            "origin" : "UNKNOWN",
+            "groupId" : null,
+            "artifactId" : null,
+            "version" : null,
+            "coordinates" : "UNKNOWN",
+            "sourcePath" : "/home/kth/.m2/repository/org/apache/thrift/libthrift/0.12.0/libthrift-0.12.0.jar"
+          },
+          "lineNumber" : 63,
+          "codeLine" : "      framedTransport = new TFastFramedTransport(new TIOStreamTransport(os),",
+          "apiChanges" : [ {
+            "elementType" : "CONSTRUCTOR",
+            "matchType" : "EXACT_SIGNATURE",
+            "name" : "TIOStreamTransport",
+            "declaringType" : "org.apache.thrift.transport.TIOStreamTransport",
+            "qualifiedSignature" : "org.apache.thrift.transport.TIOStreamTransport.TIOStreamTransport(java.io.OutputStream)",
+            "changeStatus" : "MODIFIED",
+            "binaryCompatible" : true,
+            "sourceCompatible" : false,
+            "compatibilityChanges" : [ {
+              "type" : "METHOD_NOW_THROWS_CHECKED_EXCEPTION",
+              "binaryCompatible" : true,
+              "sourceCompatible" : false,
+              "semanticVersionImpact" : "MINOR"
+            } ],
+            "signature" : {
+              "oldValue" : "javassist.CtConstructor@44744db9[public TIOStreamTransport (Ljava/io/OutputStream;)V]",
+              "newValue" : "javassist.CtConstructor@2534fcc4[public TIOStreamTransport (Ljava/io/OutputStream;)V]",
+              "changed" : true
+            },
+            "value" : {
+              "oldValue" : null,
+              "newValue" : null,
+              "changed" : false
+            },
+            "parameterTypes" : [ "java.io.OutputStream" ],
+            "changedMemberCount" : null
+          }, {
+            "elementType" : "CONSTRUCTOR",
+            "matchType" : "NAME_ONLY",
+            "name" : "TIOStreamTransport",
+            "declaringType" : "org.apache.thrift.transport.TIOStreamTransport",
+            "qualifiedSignature" : "org.apache.thrift.transport.TIOStreamTransport.TIOStreamTransport(java.io.InputStream, java.io.OutputStream)",
+            "changeStatus" : "MODIFIED",
+            "binaryCompatible" : true,
+            "sourceCompatible" : false,
+            "compatibilityChanges" : [ {
+              "type" : "METHOD_NOW_THROWS_CHECKED_EXCEPTION",
+              "binaryCompatible" : true,
+              "sourceCompatible" : false,
+              "semanticVersionImpact" : "MINOR"
+            } ],
+            "signature" : {
+              "oldValue" : "javassist.CtConstructor@4f7821c[public TIOStreamTransport (Ljava/io/InputStream;Ljava/io/OutputStream;)V]",
+              "newValue" : "javassist.CtConstructor@563cb067[public TIOStreamTransport (Ljava/io/InputStream;Ljava/io/OutputStream;)V]",
+              "changed" : true
+            },
+            "value" : {
+              "oldValue" : null,
+              "newValue" : null,
+              "changed" : false
+            },
+            "parameterTypes" : [ "java.io.InputStream", "java.io.OutputStream" ],
+            "changedMemberCount" : null
+          }, {
+            "elementType" : "CONSTRUCTOR",
+            "matchType" : "NAME_ONLY",
+            "name" : "TIOStreamTransport",
+            "declaringType" : "org.apache.thrift.transport.TIOStreamTransport",
+            "qualifiedSignature" : "org.apache.thrift.transport.TIOStreamTransport.TIOStreamTransport(java.io.InputStream)",
+            "changeStatus" : "MODIFIED",
+            "binaryCompatible" : true,
+            "sourceCompatible" : false,
+            "compatibilityChanges" : [ {
+              "type" : "METHOD_NOW_THROWS_CHECKED_EXCEPTION",
+              "binaryCompatible" : true,
+              "sourceCompatible" : false,
+              "semanticVersionImpact" : "MINOR"
+            } ],
+            "signature" : {
+              "oldValue" : "javassist.CtConstructor@4a4a4a6c[public TIOStreamTransport (Ljava/io/InputStream;)V]",
+              "newValue" : "javassist.CtConstructor@5726d0fb[public TIOStreamTransport (Ljava/io/InputStream;)V]",
+              "changed" : true
+            },
+            "value" : {
+              "oldValue" : null,
+              "newValue" : null,
+              "changed" : false
+            },
+            "parameterTypes" : [ "java.io.InputStream" ],
+            "changedMemberCount" : null
+          }, {
+            "elementType" : "CONSTRUCTOR",
+            "matchType" : "NAME_ONLY",
+            "name" : "TIOStreamTransport",
+            "declaringType" : "org.apache.thrift.transport.TIOStreamTransport",
+            "qualifiedSignature" : "org.apache.thrift.transport.TIOStreamTransport.TIOStreamTransport()",
+            "changeStatus" : "MODIFIED",
+            "binaryCompatible" : true,
+            "sourceCompatible" : false,
+            "compatibilityChanges" : [ {
+              "type" : "METHOD_NOW_THROWS_CHECKED_EXCEPTION",
+              "binaryCompatible" : true,
+              "sourceCompatible" : false,
+              "semanticVersionImpact" : "MINOR"
+            } ],
+            "signature" : {
+              "oldValue" : "javassist.CtConstructor@6ff94f61[protected TIOStreamTransport ()V]",
+              "newValue" : "javassist.CtConstructor@5c756571[protected TIOStreamTransport ()V]",
+              "changed" : true
+            },
+            "value" : {
+              "oldValue" : null,
+              "newValue" : null,
+              "changed" : false
+            },
+            "parameterTypes" : [ ],
+            "changedMemberCount" : null
+          }, {
+            "elementType" : "CONSTRUCTOR",
+            "matchType" : "NAME_ONLY",
+            "name" : "TIOStreamTransport",
+            "declaringType" : "org.apache.thrift.transport.TIOStreamTransport",
+            "qualifiedSignature" : "org.apache.thrift.transport.TIOStreamTransport.TIOStreamTransport(org.apache.thrift.TConfiguration)",
+            "changeStatus" : "NEW",
+            "binaryCompatible" : true,
+            "sourceCompatible" : true,
+            "compatibilityChanges" : [ ],
+            "signature" : {
+              "oldValue" : null,
+              "newValue" : "javassist.CtConstructor@933d44[protected TIOStreamTransport (Lorg/apache/thrift/TConfiguration;)V]",
+              "changed" : true
+            },
+            "value" : {
+              "oldValue" : null,
+              "newValue" : null,
+              "changed" : false
+            },
+            "parameterTypes" : [ "org.apache.thrift.TConfiguration" ],
+            "changedMemberCount" : null
+          }, {
+            "elementType" : "CONSTRUCTOR",
+            "matchType" : "NAME_ONLY",
+            "name" : "TIOStreamTransport",
+            "declaringType" : "org.apache.thrift.transport.TIOStreamTransport",
+            "qualifiedSignature" : "org.apache.thrift.transport.TIOStreamTransport.TIOStreamTransport(org.apache.thrift.TConfiguration, java.io.InputStream, java.io.OutputStream)",
+            "changeStatus" : "NEW",
+            "binaryCompatible" : true,
+            "sourceCompatible" : true,
+            "compatibilityChanges" : [ ],
+            "signature" : {
+              "oldValue" : null,
+              "newValue" : "javassist.CtConstructor@77ba8eca[public TIOStreamTransport (Lorg/apache/thrift/TConfiguration;Ljava/io/InputStream;Ljava/io/OutputStream;)V]",
+              "changed" : true
+            },
+            "value" : {
+              "oldValue" : null,
+              "newValue" : null,
+              "changed" : false
+            },
+            "parameterTypes" : [ "org.apache.thrift.TConfiguration", "java.io.InputStream", "java.io.OutputStream" ],
+            "changedMemberCount" : null
+          }, {
+            "elementType" : "CONSTRUCTOR",
+            "matchType" : "NAME_ONLY",
+            "name" : "TIOStreamTransport",
+            "declaringType" : "org.apache.thrift.transport.TIOStreamTransport",
+            "qualifiedSignature" : "org.apache.thrift.transport.TIOStreamTransport.TIOStreamTransport(org.apache.thrift.TConfiguration, java.io.InputStream)",
+            "changeStatus" : "NEW",
+            "binaryCompatible" : true,
+            "sourceCompatible" : true,
+            "compatibilityChanges" : [ ],
+            "signature" : {
+              "oldValue" : null,
+              "newValue" : "javassist.CtConstructor@11c51c01[public TIOStreamTransport (Lorg/apache/thrift/TConfiguration;Ljava/io/InputStream;)V]",
+              "changed" : true
+            },
+            "value" : {
+              "oldValue" : null,
+              "newValue" : null,
+              "changed" : false
+            },
+            "parameterTypes" : [ "org.apache.thrift.TConfiguration", "java.io.InputStream" ],
+            "changedMemberCount" : null
+          }, {
+            "elementType" : "CONSTRUCTOR",
+            "matchType" : "NAME_ONLY",
+            "name" : "TIOStreamTransport",
+            "declaringType" : "org.apache.thrift.transport.TIOStreamTransport",
+            "qualifiedSignature" : "org.apache.thrift.transport.TIOStreamTransport.TIOStreamTransport(org.apache.thrift.TConfiguration, java.io.OutputStream)",
+            "changeStatus" : "NEW",
+            "binaryCompatible" : true,
+            "sourceCompatible" : true,
+            "compatibilityChanges" : [ ],
+            "signature" : {
+              "oldValue" : null,
+              "newValue" : "javassist.CtConstructor@13951021[public TIOStreamTransport (Lorg/apache/thrift/TConfiguration;Ljava/io/OutputStream;)V]",
+              "changed" : true
+            },
+            "value" : {
+              "oldValue" : null,
+              "newValue" : null,
+              "changed" : false
+            },
+            "parameterTypes" : [ "org.apache.thrift.TConfiguration", "java.io.OutputStream" ],
+            "changedMemberCount" : null
+          }, {
+            "elementType" : "CLASS",
+            "matchType" : "CLASS",
+            "name" : "org.apache.thrift.transport.TIOStreamTransport",
+            "declaringType" : "org.apache.thrift.transport.TIOStreamTransport",
+            "qualifiedSignature" : "org.apache.thrift.transport.TIOStreamTransport",
+            "changeStatus" : "MODIFIED",
+            "binaryCompatible" : true,
+            "sourceCompatible" : false,
+            "compatibilityChanges" : [ ],
+            "signature" : null,
+            "value" : null,
+            "parameterTypes" : null,
+            "changedMemberCount" : 8
+          } ]
+        }, {
+          "constructType" : "TYPE_REFERENCE",
+          "signature" : "org.apache.thrift.transport.TIOStreamTransport",
+          "dependency" : {
+            "origin" : "UNKNOWN",
+            "groupId" : null,
+            "artifactId" : null,
+            "version" : null,
+            "coordinates" : "UNKNOWN",
+            "sourcePath" : "/home/kth/.m2/repository/org/apache/thrift/libthrift/0.12.0/libthrift-0.12.0.jar"
+          },
+          "lineNumber" : 63,
+          "codeLine" : "      framedTransport = new TFastFramedTransport(new TIOStreamTransport(os),",
+          "apiChanges" : [ {
+            "elementType" : "CLASS",
+            "matchType" : "CLASS",
+            "name" : "org.apache.thrift.transport.TIOStreamTransport",
+            "declaringType" : "org.apache.thrift.transport.TIOStreamTransport",
+            "qualifiedSignature" : "org.apache.thrift.transport.TIOStreamTransport",
+            "changeStatus" : "MODIFIED",
+            "binaryCompatible" : true,
+            "sourceCompatible" : false,
+            "compatibilityChanges" : [ ],
+            "signature" : null,
+            "value" : null,
+            "parameterTypes" : null,
+            "changedMemberCount" : 8
+          } ]
+        } ]
+      }
+    } ]
+  } ]
+}

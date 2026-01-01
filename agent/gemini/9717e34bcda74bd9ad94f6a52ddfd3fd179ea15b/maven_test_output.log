@@ -1,0 +1,44 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< com.jcabi:jcabi-github >-----------------------
+[INFO] Building jcabi-github 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The artifact xml-apis:xml-apis:jar:2.0.2 has been relocated to xml-apis:xml-apis:jar:1.0.b2
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce-maven) @ jcabi-github ---
+[INFO] 
+[INFO] --- buildnumber:3.0.0:create (jcabi-build-number) @ jcabi-github ---
+[INFO] ShortRevision tag detected. The value is '7'.
+[INFO] Executing: /bin/sh -c cd '/workspace/jcabi-github' && 'git' 'rev-parse' '--verify' '--short=7' 'HEAD'
+[INFO] Working directory: /workspace/jcabi-github
+[INFO] Storing buildNumber: null at timestamp: 2025-12-30T18:17:37
+[WARNING] Cannot get the branch information from the git repository: 
+Detecting the current branch failed: fatal: detected dubious ownership in repository at '/workspace/jcabi-github'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /workspace/jcabi-github
+
+[INFO] ShortRevision tag detected. The value is '7'.
+[INFO] Executing: /bin/sh -c cd '/workspace/jcabi-github' && 'git' 'rev-parse' '--verify' '--short=7' 'HEAD'
+[INFO] Working directory: /workspace/jcabi-github
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- buildnumber:3.0.0:create-timestamp (jcabi-build-number) @ jcabi-github ---
+[INFO] Skipping because we are not in root module.
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ jcabi-github ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] The encoding used to copy filtered properties files have not been set. This means that the same encoding will be used to copy filtered properties files as when copying other filtered resources. This might not be what you want! Run your build with --debug to see which files might be affected. Read more at https://maven.apache.org/plugins/maven-resources-plugin/examples/filtering-properties-files.html
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ jcabi-github ---
+[WARNING]  Parameter 'optimize' (user property 'maven.compiler.optimize') is deprecated: This property is a no-op in {@code javac}.
+[INFO] Nothing to compile - all classes are up to date
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.797 s
+[INFO] Finished at: 2025-12-30T18:17:38Z
+[INFO] ------------------------------------------------------------------------

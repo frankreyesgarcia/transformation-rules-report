@@ -1,0 +1,20 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< com.github.knaufk:flink-faker >--------------------
+[INFO] Building flink-faker 0.5.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ flink-faker ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ flink-faker ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /workspace/flink-faker/target/classes
+[WARNING] bootstrap class path not set in conjunction with -source 8
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.974 s
+[INFO] Finished at: 2025-12-30T14:39:33Z
+[INFO] ------------------------------------------------------------------------

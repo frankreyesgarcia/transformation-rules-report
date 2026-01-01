@@ -1,0 +1,113 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Polyglot :: Aggregator                                             [pom]
+[INFO] Polyglot :: Common                                          [takari-jar]
+[INFO] Polyglot :: Atom                                            [takari-jar]
+[INFO] Polyglot :: Maven Plugin                           [takari-maven-plugin]
+[INFO] Polyglot :: Ruby                                            [takari-jar]
+[INFO] Polyglot :: Scala                                           [takari-jar]
+[INFO] Polyglot :: Groovy                                          [takari-jar]
+[INFO] Polyglot :: YAML                                            [takari-jar]
+[INFO] Polyglot :: Clojure                                         [takari-jar]
+[INFO] Polyglot :: XML                                             [takari-jar]
+[INFO] Polyglot :: Java                                            [takari-jar]
+[INFO] Polyglot :: Kotlin                                          [takari-jar]
+[INFO] Polyglot :: Translate Plugin                       [takari-maven-plugin]
+[INFO] 
+[INFO] --------------------< io.takari.polyglot:polyglot >---------------------
+[INFO] Building Polyglot :: Aggregator 0.4.10-SNAPSHOT                   [1/13]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-versions) @ polyglot ---
+[INFO] 
+[INFO] -----------------< io.takari.polyglot:polyglot-common >-----------------
+[INFO] Building Polyglot :: Common 0.4.10-SNAPSHOT                       [2/13]
+[INFO]   from polyglot-common/pom.xml
+[INFO] -----------------------------[ takari-jar ]-----------------------------
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:update-check (default-update-check) @ polyglot-common ---
+Dec 30, 2025 2:47:00 PM java.util.prefs.FileSystemPreferences$1 run
+INFO: Created user preferences directory.
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-versions) @ polyglot-common ---
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:process-resources (default-process-resources) @ polyglot-common ---
+[INFO] Performing incremental build
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:compile (default-compile) @ polyglot-common ---
+[INFO] Performing incremental build
+[INFO] Skipped compilation, all 18 classes are up to date
+[INFO] 
+[INFO] ------------------< io.takari.polyglot:polyglot-atom >------------------
+[INFO] Building Polyglot :: Atom 0.4.10-SNAPSHOT                         [3/13]
+[INFO]   from polyglot-atom/pom.xml
+[INFO] -----------------------------[ takari-jar ]-----------------------------
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:update-check (default-update-check) @ polyglot-atom ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-versions) @ polyglot-atom ---
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:process-resources (default-process-resources) @ polyglot-atom ---
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:compile (default-compile) @ polyglot-atom ---
+[INFO] Performing incremental build
+[INFO] Skipped compilation, all 14 classes are up to date
+[INFO] 
+[INFO] --------------< io.takari.polyglot:polyglot-maven-plugin >--------------
+[INFO] Building Polyglot :: Maven Plugin 0.4.10-SNAPSHOT                 [4/13]
+[INFO]   from polyglot-maven-plugin/pom.xml
+[INFO] ------------------------[ takari-maven-plugin ]-------------------------
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:update-check (default-update-check) @ polyglot-maven-plugin ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-versions) @ polyglot-maven-plugin ---
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:process-resources (default-process-resources) @ polyglot-maven-plugin ---
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:compile (default-compile) @ polyglot-maven-plugin ---
+[INFO] Performing incremental build
+[INFO] Skipped compilation, all 1 classes are up to date
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:mojo-annotation-processor (default-mojo-annotation-processor) @ polyglot-maven-plugin ---
+[INFO] Performing incremental build
+[INFO] Skipped compilation, all 1 classes are up to date
+[INFO] 
+[INFO] ------------------< io.takari.polyglot:polyglot-ruby >------------------
+[INFO] Building Polyglot :: Ruby 0.4.10-SNAPSHOT                         [5/13]
+[INFO]   from polyglot-ruby/pom.xml
+[INFO] -----------------------------[ takari-jar ]-----------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Polyglot :: Aggregator 0.4.10-SNAPSHOT:
+[INFO] 
+[INFO] Polyglot :: Aggregator ............................. SUCCESS [  0.555 s]
+[INFO] Polyglot :: Common ................................. SUCCESS [ 23.167 s]
+[INFO] Polyglot :: Atom ................................... SUCCESS [  0.148 s]
+[INFO] Polyglot :: Maven Plugin ........................... SUCCESS [  0.212 s]
+[INFO] Polyglot :: Ruby ................................... FAILURE [  0.143 s]
+[INFO] Polyglot :: Scala .................................. SKIPPED
+[INFO] Polyglot :: Groovy ................................. SKIPPED
+[INFO] Polyglot :: YAML ................................... SKIPPED
+[INFO] Polyglot :: Clojure ................................ SKIPPED
+[INFO] Polyglot :: XML .................................... SKIPPED
+[INFO] Polyglot :: Java ................................... SKIPPED
+[INFO] Polyglot :: Kotlin ................................. SKIPPED
+[INFO] Polyglot :: Translate Plugin ....................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  25.995 s
+[INFO] Finished at: 2025-12-30T14:47:23Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project polyglot-ruby: Could not resolve dependencies for project io.takari.polyglot:polyglot-ruby:takari-jar:0.4.10-SNAPSHOT: Failed to collect dependencies at rubygems:maven-tools:gem:1.1.7 -> rubygems:virtus:gem:[1.0,1.99999]: No versions available for rubygems:virtus:gem:[1.0,1.99999] within specified range -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :polyglot-ruby

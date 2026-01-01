@@ -1,0 +1,34 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] 
+[INFO] ----------------< de.gwdg.metadataqa:metadata-qa-marc >-----------------
+[INFO] Building Quality assessment for MARC 0.6.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'destfile' is unknown for plugin 'jacoco-maven-plugin:0.8.6:prepare-agent (prepare-agent)'
+[WARNING] Parameter 'datafile' is unknown for plugin 'jacoco-maven-plugin:0.8.6:prepare-agent (prepare-agent)'
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ metadata-qa-marc ---
+[INFO] Deleting /workspace/qa-catalogue/target
+[INFO] 
+[INFO] --- jacoco:0.8.6:prepare-agent (prepare-agent) @ metadata-qa-marc ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.6/org.jacoco.agent-0.8.6-runtime.jar=destfile=/workspace/qa-catalogue/target/jacoco.exec -Duser.timezone=UTC -Dfile.encoding=UTF-8 -Duser.language=en -Duser.region=US
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ metadata-qa-marc ---
+[INFO] Copying 11 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ metadata-qa-marc ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 967 source files to /workspace/qa-catalogue/target/classes
+[INFO] /workspace/qa-catalogue/src/main/java/de/gwdg/metadataqa/marc/datastore/MarcMongodbClient.java: Some input files use or override a deprecated API.
+[INFO] /workspace/qa-catalogue/src/main/java/de/gwdg/metadataqa/marc/datastore/MarcMongodbClient.java: Recompile with -Xlint:deprecation for details.
+[INFO] /workspace/qa-catalogue/src/main/java/de/gwdg/metadataqa/marc/dao/record/BibliographicRecord.java: Some input files use unchecked or unsafe operations.
+[INFO] /workspace/qa-catalogue/src/main/java/de/gwdg/metadataqa/marc/dao/record/BibliographicRecord.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  18.646 s
+[INFO] Finished at: 2025-12-30T15:40:14Z
+[INFO] ------------------------------------------------------------------------

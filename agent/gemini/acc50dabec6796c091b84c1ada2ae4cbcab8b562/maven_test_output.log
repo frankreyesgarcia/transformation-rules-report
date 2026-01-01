@@ -1,0 +1,259 @@
+[INFO] Scanning for projects...
+[WARNING] The project com.google.inject:guice-parent:pom:5.0.2-SNAPSHOT uses prerequisites which is only intended for maven-plugin projects but not for non maven-plugin projects. For such purposes you should use the maven-enforcer-plugin. See https://maven.apache.org/enforcer/enforcer-rules/requireMavenVersion.html
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Google Guice                                                       [pom]
+[INFO] Google Guice - Bill of Materials                                   [pom]
+[INFO] Google Guice - Core Library                                        [jar]
+[INFO] Google Guice - Extensions                                          [pom]
+[INFO] Google Guice - Extensions - AssistedInject                         [jar]
+[INFO] Google Guice - Extensions - Dagger Adapter                         [jar]
+[INFO] Google Guice - Extensions - Grapher                                [jar]
+[INFO] Google Guice - Extensions - JMX                                    [jar]
+[INFO] Google Guice - Extensions - JNDI                                   [jar]
+[INFO] Google Guice - Extensions - Persist                                [jar]
+[INFO] Google Guice - Extensions - Servlet                                [jar]
+[INFO] Google Guice - Extensions - Spring                                 [jar]
+[INFO] Google Guice - Extensions - Struts2                                [jar]
+[INFO] Google Guice - Extensions - ThrowingProviders                      [jar]
+[INFO] Google Guice - Extensions - TestLib                                [jar]
+[INFO] Google Guice - JDK8 Tests                                          [jar]
+[INFO] 
+[INFO] -------------------< com.google.inject:guice-parent >-------------------
+[INFO] Building Google Guice 5.0.2-SNAPSHOT                              [1/16]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --------------------< com.google.inject:guice-bom >---------------------
+[INFO] Building Google Guice - Bill of Materials 5.0.2-SNAPSHOT          [2/16]
+[INFO]   from bom/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] ----------------------< com.google.inject:guice >-----------------------
+[INFO] Building Google Guice - Core Library 5.0.2-SNAPSHOT               [3/16]
+[INFO]   from core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ guice ---
+[INFO] Setting property: classpath.resource.loader.class => 'org.codehaus.plexus.velocity.ContextClassLoaderResourceLoader'.
+[INFO] Setting property: velocimacro.messages.on => 'false'.
+[INFO] Setting property: resource.loader => 'classpath'.
+[INFO] Setting property: resource.manager.logwhenfound => 'false'.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ guice ---
+[INFO] Copying 0 resource from src to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ guice ---
+[INFO] Compiling 8 source files to /workspace/guice/core/target/classes
+[INFO] 
+[INFO] -----------< com.google.inject.extensions:extensions-parent >-----------
+[INFO] Building Google Guice - Extensions 5.0.2-SNAPSHOT                 [4/16]
+[INFO]   from extensions/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ extensions-parent ---
+[INFO] 
+[INFO] ---------< com.google.inject.extensions:guice-assistedinject >----------
+[INFO] Building Google Guice - Extensions - AssistedInject 5.0.2-SNAPSHOT [5/16]
+[INFO]   from extensions/assistedinject/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ guice-assistedinject ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ guice-assistedinject ---
+[INFO] Copying 0 resource from src to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ guice-assistedinject ---
+[INFO] Compiling 1 source file to /workspace/guice/extensions/assistedinject/target/classes
+[INFO] 
+[INFO] ---------< com.google.inject.extensions:guice-dagger-adapter >----------
+[INFO] Building Google Guice - Extensions - Dagger Adapter 5.0.2-SNAPSHOT [6/16]
+[INFO]   from extensions/dagger-adapter/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ guice-dagger-adapter ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ guice-dagger-adapter ---
+[INFO] Copying 0 resource from src to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ guice-dagger-adapter ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] -------------< com.google.inject.extensions:guice-grapher >-------------
+[INFO] Building Google Guice - Extensions - Grapher 5.0.2-SNAPSHOT       [7/16]
+[INFO]   from extensions/grapher/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ guice-grapher ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ guice-grapher ---
+[INFO] Copying 0 resource from src to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ guice-grapher ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] ---------------< com.google.inject.extensions:guice-jmx >---------------
+[INFO] Building Google Guice - Extensions - JMX 5.0.2-SNAPSHOT           [8/16]
+[INFO]   from extensions/jmx/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ guice-jmx ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ guice-jmx ---
+[INFO] Copying 0 resource from src to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ guice-jmx ---
+[INFO] Compiling 1 source file to /workspace/guice/extensions/jmx/target/classes
+[INFO] 
+[INFO] --------------< com.google.inject.extensions:guice-jndi >---------------
+[INFO] Building Google Guice - Extensions - JNDI 5.0.2-SNAPSHOT          [9/16]
+[INFO]   from extensions/jndi/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ guice-jndi ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ guice-jndi ---
+[INFO] Copying 0 resource from src to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ guice-jndi ---
+[INFO] Compiling 1 source file to /workspace/guice/extensions/jndi/target/classes
+[INFO] 
+[INFO] -------------< com.google.inject.extensions:guice-persist >-------------
+[INFO] Building Google Guice - Extensions - Persist 5.0.2-SNAPSHOT      [10/16]
+[INFO]   from extensions/persist/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ guice-persist ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ guice-persist ---
+[INFO] Copying 0 resource from src to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ guice-persist ---
+[INFO] Compiling 3 source files to /workspace/guice/extensions/persist/target/classes
+[INFO] 
+[INFO] -------------< com.google.inject.extensions:guice-servlet >-------------
+[INFO] Building Google Guice - Extensions - Servlet 5.0.2-SNAPSHOT      [11/16]
+[INFO]   from extensions/servlet/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ guice-servlet ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ guice-servlet ---
+[INFO] Copying 0 resource from src to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ guice-servlet ---
+[INFO] Compiling 1 source file to /workspace/guice/extensions/servlet/target/classes
+[INFO] 
+[INFO] -------------< com.google.inject.extensions:guice-spring >--------------
+[INFO] Building Google Guice - Extensions - Spring 5.0.2-SNAPSHOT       [12/16]
+[INFO]   from extensions/spring/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ guice-spring ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ guice-spring ---
+[INFO] Copying 0 resource from src to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ guice-spring ---
+[INFO] Compiling 1 source file to /workspace/guice/extensions/spring/target/classes
+[INFO] 
+[INFO] -------------< com.google.inject.extensions:guice-struts2 >-------------
+[INFO] Building Google Guice - Extensions - Struts2 5.0.2-SNAPSHOT      [13/16]
+[INFO]   from extensions/struts2/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ guice-struts2 ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ guice-struts2 ---
+[INFO] Copying 1 resource from src to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ guice-struts2 ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --------< com.google.inject.extensions:guice-throwingproviders >--------
+[INFO] Building Google Guice - Extensions - ThrowingProviders 5.0.2-SNAPSHOT [14/16]
+[INFO]   from extensions/throwingproviders/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ guice-throwingproviders ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ guice-throwingproviders ---
+[INFO] Copying 0 resource from src to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ guice-throwingproviders ---
+[INFO] Compiling 1 source file to /workspace/guice/extensions/throwingproviders/target/classes
+[INFO] 
+[INFO] -------------< com.google.inject.extensions:guice-testlib >-------------
+[INFO] Building Google Guice - Extensions - TestLib 5.0.2-SNAPSHOT      [15/16]
+[INFO]   from extensions/testlib/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ guice-testlib ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ guice-testlib ---
+[INFO] Copying 0 resource from src to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ guice-testlib ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --------------------< com.google.inject:jdk8-tests >--------------------
+[INFO] Building Google Guice - JDK8 Tests 5.0.2-SNAPSHOT                [16/16]
+[INFO]   from jdk8-tests/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ jdk8-tests ---
+[INFO] skip non existing resourceDirectory /workspace/guice/jdk8-tests/src
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ jdk8-tests ---
+[INFO] No sources to compile
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Google Guice 5.0.2-SNAPSHOT:
+[INFO] 
+[INFO] Google Guice ....................................... SUCCESS [  0.003 s]
+[INFO] Google Guice - Bill of Materials ................... SUCCESS [  0.001 s]
+[INFO] Google Guice - Core Library ........................ SUCCESS [  2.429 s]
+[INFO] Google Guice - Extensions .......................... SUCCESS [  0.102 s]
+[INFO] Google Guice - Extensions - AssistedInject ......... SUCCESS [  0.315 s]
+[INFO] Google Guice - Extensions - Dagger Adapter ......... SUCCESS [  0.189 s]
+[INFO] Google Guice - Extensions - Grapher ................ SUCCESS [  0.129 s]
+[INFO] Google Guice - Extensions - JMX .................... SUCCESS [  0.196 s]
+[INFO] Google Guice - Extensions - JNDI ................... SUCCESS [  0.180 s]
+[INFO] Google Guice - Extensions - Persist ................ SUCCESS [  0.254 s]
+[INFO] Google Guice - Extensions - Servlet ................ SUCCESS [  0.175 s]
+[INFO] Google Guice - Extensions - Spring ................. SUCCESS [  0.207 s]
+[INFO] Google Guice - Extensions - Struts2 ................ SUCCESS [  0.250 s]
+[INFO] Google Guice - Extensions - ThrowingProviders ...... SUCCESS [  0.137 s]
+[INFO] Google Guice - Extensions - TestLib ................ SUCCESS [  0.201 s]
+[INFO] Google Guice - JDK8 Tests .......................... SUCCESS [  0.013 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.110 s
+[INFO] Finished at: 2025-12-30T20:09:14Z
+[INFO] ------------------------------------------------------------------------

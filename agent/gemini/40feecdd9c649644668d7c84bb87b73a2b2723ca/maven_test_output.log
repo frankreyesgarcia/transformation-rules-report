@@ -1,0 +1,73 @@
+[INFO] Scanning for projects...
+[WARNING] The project org.jasig.portlet.courses:courses-portlet-parent:pom:2.1.1-SNAPSHOT uses prerequisites which is only intended for maven-plugin projects but not for non maven-plugin projects. For such purposes you should use the maven-enforcer-plugin. See https://maven.apache.org/enforcer/enforcer-rules/requireMavenVersion.html
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] CoursePortlet                                                      [pom]
+[INFO] CoursePortlet - API                                                [jar]
+[INFO] CoursePortlet - Data Access Objects for SIS/LMS integration        [jar]
+[INFO] CoursePortlet - Webapp                                             [war]
+[INFO] 
+[INFO] ----------< org.jasig.portlet.courses:courses-portlet-parent >----------
+[INFO] Building CoursePortlet 2.1.1-SNAPSHOT                              [1/4]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:1.0:enforce (enforce-maven) @ courses-portlet-parent ---
+[INFO] 
+[INFO] -----------< org.jasig.portlet.courses:courses-portlet-api >------------
+[INFO] Building CoursePortlet - API 2.1.1-SNAPSHOT                        [2/4]
+[INFO]   from courses-portlet-api/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:1.0:enforce (enforce-maven) @ courses-portlet-api ---
+[INFO] 
+[INFO] --- jaxb2:0.15.3:generate (default) @ courses-portlet-api ---
+[INFO] Latest timestamp of the source resources is [2025-12-30 15:15:24.593], earliest timestamp of the target resources is [2025-12-30 15:20:00.727].
+[INFO] Sources are up-to-date, XJC will be skipped.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ courses-portlet-api ---
+[INFO] Copying 5 resources from src/main/resources to target/classes
+[INFO] Copying 1 resource from target/generated-sources/xjc to target/classes
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ courses-portlet-api ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] -----------< org.jasig.portlet.courses:courses-portlet-dao >------------
+[INFO] Building CoursePortlet - Data Access Objects for SIS/LMS integration 2.1.1-SNAPSHOT [3/4]
+[INFO]   from courses-portlet-dao/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:1.0:enforce (enforce-maven) @ courses-portlet-dao ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ courses-portlet-dao ---
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ courses-portlet-dao ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] ----------< org.jasig.portlet.courses:courses-portlet-webapp >----------
+[INFO] Building CoursePortlet - Webapp 2.1.1-SNAPSHOT                     [4/4]
+[INFO]   from courses-portlet-webapp/pom.xml
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:1.0:enforce (enforce-maven) @ courses-portlet-webapp ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ courses-portlet-webapp ---
+[INFO] Copying 5 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ courses-portlet-webapp ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for CoursePortlet 2.1.1-SNAPSHOT:
+[INFO] 
+[INFO] CoursePortlet ...................................... SUCCESS [  0.786 s]
+[INFO] CoursePortlet - API ................................ SUCCESS [  1.340 s]
+[INFO] CoursePortlet - Data Access Objects for SIS/LMS integration SUCCESS [  0.148 s]
+[INFO] CoursePortlet - Webapp ............................. SUCCESS [  0.674 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.207 s
+[INFO] Finished at: 2025-12-30T15:20:22Z
+[INFO] ------------------------------------------------------------------------

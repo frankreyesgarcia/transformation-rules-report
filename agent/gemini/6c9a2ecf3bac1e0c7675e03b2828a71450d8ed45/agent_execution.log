@@ -1,0 +1,174 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] poc-multi-module-arch-hexagonal-springboot                         [pom]
+[INFO] domain                                                             [jar]
+[INFO] application                                                        [jar]
+[INFO] datastore-mysql                                                    [jar]
+[INFO] ms-launcher                                                        [jar]
+[INFO] kafka-consumer                                                     [jar]
+[INFO] kafka-producer                                                     [jar]
+[INFO] coverage                                                           [jar]
+[INFO] 
+[INFO] --< io.github.wesleyosantos91:poc-multi-module-arch-hexagonal-springboot >--
+[INFO] Building poc-multi-module-arch-hexagonal-springboot 1.0.0          [1/8]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ poc-multi-module-arch-hexagonal-springboot ---
+[INFO] 
+[INFO] ------------------< io.github.wesleyosantos91:domain >------------------
+[INFO] Building domain 1.0.0                                              [2/8]
+[INFO]   from domain/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ domain ---
+[INFO] Deleting /workspace/poc-multi-module-arch-hexagonal-springboot/domain/target
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default-prepare-agent) @ domain ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/workspace/poc-multi-module-arch-hexagonal-springboot/domain/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ domain ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /workspace/poc-multi-module-arch-hexagonal-springboot/domain/src/main/resources
+[INFO] skip non existing resourceDirectory /workspace/poc-multi-module-arch-hexagonal-springboot/domain/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ domain ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /workspace/poc-multi-module-arch-hexagonal-springboot/domain/target/classes
+[INFO] 
+[INFO] ---------------< io.github.wesleyosantos91:application >----------------
+[INFO] Building application 1.0.0                                         [3/8]
+[INFO]   from application/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ application ---
+[INFO] Deleting /workspace/poc-multi-module-arch-hexagonal-springboot/application/target
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default-prepare-agent) @ application ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/workspace/poc-multi-module-arch-hexagonal-springboot/application/target/jacoco.exec,excludes=**/**/Application.*
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ application ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ application ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /workspace/poc-multi-module-arch-hexagonal-springboot/application/target/classes
+[INFO] 
+[INFO] -------------< io.github.wesleyosantos91:datastore-mysql >--------------
+[INFO] Building datastore-mysql 1.0.0                                     [4/8]
+[INFO]   from infrastructure/datastore-mysql/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ datastore-mysql ---
+[INFO] Deleting /workspace/poc-multi-module-arch-hexagonal-springboot/infrastructure/datastore-mysql/target
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default-prepare-agent) @ datastore-mysql ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/workspace/poc-multi-module-arch-hexagonal-springboot/infrastructure/datastore-mysql/target/jacoco.exec,excludes=**/**/Application.*
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ datastore-mysql ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ datastore-mysql ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /workspace/poc-multi-module-arch-hexagonal-springboot/infrastructure/datastore-mysql/target/classes
+[INFO] 
+[INFO] ---------------< io.github.wesleyosantos91:ms-launcher >----------------
+[INFO] Building ms-launcher 1.0.0                                         [5/8]
+[INFO]   from ms-launcher/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ ms-launcher ---
+[INFO] Deleting /workspace/poc-multi-module-arch-hexagonal-springboot/ms-launcher/target
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default-prepare-agent) @ ms-launcher ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/workspace/poc-multi-module-arch-hexagonal-springboot/ms-launcher/target/jacoco.exec,excludes=**/**/Application.*:**/configuration/*
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ ms-launcher ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ ms-launcher ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /workspace/poc-multi-module-arch-hexagonal-springboot/ms-launcher/target/classes
+[INFO] 
+[INFO] --------------< io.github.wesleyosantos91:kafka-consumer >--------------
+[INFO] Building kafka-consumer 1.0.0                                      [6/8]
+[INFO]   from infrastructure/kafka-consumer/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ kafka-consumer ---
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default-prepare-agent) @ kafka-consumer ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/workspace/poc-multi-module-arch-hexagonal-springboot/infrastructure/kafka-consumer/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ kafka-consumer ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /workspace/poc-multi-module-arch-hexagonal-springboot/infrastructure/kafka-consumer/src/main/resources
+[INFO] skip non existing resourceDirectory /workspace/poc-multi-module-arch-hexagonal-springboot/infrastructure/kafka-consumer/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ kafka-consumer ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --------------< io.github.wesleyosantos91:kafka-producer >--------------
+[INFO] Building kafka-producer 1.0.0                                      [7/8]
+[INFO]   from infrastructure/kafka-producer/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ kafka-producer ---
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default-prepare-agent) @ kafka-producer ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/workspace/poc-multi-module-arch-hexagonal-springboot/infrastructure/kafka-producer/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ kafka-producer ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /workspace/poc-multi-module-arch-hexagonal-springboot/infrastructure/kafka-producer/src/main/resources
+[INFO] skip non existing resourceDirectory /workspace/poc-multi-module-arch-hexagonal-springboot/infrastructure/kafka-producer/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ kafka-producer ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] -----------------< io.github.wesleyosantos91:coverage >-----------------
+[INFO] Building coverage 1.0.0                                            [8/8]
+[INFO]   from infrastructure/coverage/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ coverage ---
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ coverage ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /workspace/poc-multi-module-arch-hexagonal-springboot/infrastructure/coverage/src/main/resources
+[INFO] skip non existing resourceDirectory /workspace/poc-multi-module-arch-hexagonal-springboot/infrastructure/coverage/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ coverage ---
+[INFO] No sources to compile
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for poc-multi-module-arch-hexagonal-springboot 1.0.0:
+[INFO] 
+[INFO] poc-multi-module-arch-hexagonal-springboot ......... SUCCESS [  0.276 s]
+[INFO] domain ............................................. SUCCESS [  4.117 s]
+[INFO] application ........................................ SUCCESS [  2.989 s]
+[INFO] datastore-mysql .................................... SUCCESS [  1.936 s]
+[INFO] ms-launcher ........................................ SUCCESS [  1.060 s]
+[INFO] kafka-consumer ..................................... SUCCESS [  0.056 s]
+[INFO] kafka-producer ..................................... SUCCESS [  0.042 s]
+[INFO] coverage ........................................... SUCCESS [  0.068 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.139 s
+[INFO] Finished at: 2025-12-30T16:59:10Z
+[INFO] ------------------------------------------------------------------------

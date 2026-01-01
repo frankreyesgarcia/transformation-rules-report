@@ -1,0 +1,27 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] 
+[INFO] -----------------------< com.saucelabs:ci-sauce >-----------------------
+[INFO] Building ci-sauce 1.160-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default) @ ci-sauce ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/workspace/ci-sauce/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ ci-sauce ---
+[INFO] Copying 6 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ ci-sauce ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 13 source files to /workspace/ci-sauce/target/classes
+[INFO] /workspace/ci-sauce/src/main/java/com/saucelabs/ci/SODSeleniumConfiguration.java: /workspace/ci-sauce/src/main/java/com/saucelabs/ci/SODSeleniumConfiguration.java uses or overrides a deprecated API.
+[INFO] /workspace/ci-sauce/src/main/java/com/saucelabs/ci/SODSeleniumConfiguration.java: Recompile with -Xlint:deprecation for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.537 s
+[INFO] Finished at: 2025-12-30T21:50:53Z
+[INFO] ------------------------------------------------------------------------

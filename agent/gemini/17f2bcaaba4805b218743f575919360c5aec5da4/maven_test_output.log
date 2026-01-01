@@ -1,0 +1,238 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------------< micycle:PGS >-----------------------------
+[INFO] Building Processing Geometry Suite 1.3.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default) @ PGS ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/workspace/PGS/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ PGS ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /workspace/PGS/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ PGS ---
+[INFO] Changes detected - recompiling the module! :source
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 79 source files with javac [debug release 8] to target/classes
+Jabel: initialized
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_PointSet.java:[190,15] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_PointSet.java:[190,9] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_PointSet.java:[190,129] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_PointSet.java:[190,130] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_PointSet.java:[190,144] ';' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[263,15] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[263,9] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[263,113] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[263,114] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[263,128] ';' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[431,34] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[431,29] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[457,36] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[594,30] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[594,25] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[594,153] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[594,154] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[594,165] ';' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/GaussianLineSmoothing.java:[59,30] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/GaussianLineSmoothing.java:[59,25] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/GaussianLineSmoothing.java:[62,30] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/GaussianLineSmoothing.java:[62,25] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/VisibilityPolygon.java:[2,16] '.' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/VisibilityPolygon.java:[3,26] '.' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/VisibilityPolygon.java:[4,23] '.' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/VisibilityPolygon.java:[5,18] '.' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/VisibilityPolygon.java:[6,15] '.' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[97,34] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[97,25] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[97,41] ';' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[97,65] ';' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[98,59] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[98,38] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[98,60] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[98,61] ';' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[98,83] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[98,74] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[100,33] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[100,24] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Meshing.java:[714,30] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Meshing.java:[714,25] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Meshing.java:[714,185] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Meshing.java:[714,186] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Meshing.java:[714,197] ';' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Meshing.java:[716,30] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Meshing.java:[716,25] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/LittleThumblingDensifier.java:[72,34] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/LittleThumblingDensifier.java:[72,29] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/LittleThumblingDensifier.java:[73,34] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/LittleThumblingDensifier.java:[73,29] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/LittleThumblingDensifier.java:[121,98] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/LittleThumblingDensifier.java:[121,133] ';' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/LittleThumblingDensifier.java:[121,180] ';' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/LittleThumblingDensifier.java:[125,34] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/LittleThumblingDensifier.java:[125,29] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[224,38] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[224,33] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[225,38] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[225,33] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[231,38] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[231,33] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[271,34] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[271,29] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[272,34] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[272,29] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[278,34] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[278,29] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[417,38] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[417,33] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[418,38] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[418,33] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[420,42] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[420,37] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[427,38] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[427,33] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[485,38] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[485,33] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[486,38] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[486,33] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[493,42] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[493,37] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[496,38] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[496,33] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/ChaikinCut.java:[120,29] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/ChaikinCut.java:[121,29] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/ChaikinCut.java:[124,29] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/ChaikinCut.java:[125,29] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/DiscreteCurveEvolution.java:[76,80] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/SeededRandomPointsInGridBuilder.java:[84,30] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/SeededRandomPointsInGridBuilder.java:[84,25] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Hull.java:[196,36] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/RLFColoring.java:[84,32] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/RLFColoring.java:[113,40] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/RLFColoring.java:[113,54] illegal start of type
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/RLFColoring.java:[113,53] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/RLFColoring.java:[113,55] ';' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/RLFColoring.java:[113,56] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/RLFColoring.java:[113,57] ';' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/RLFColoring.java:[113,71] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/RLFColoring.java:[113,74] ';' expected
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.347 s
+[INFO] Finished at: 2025-12-30T13:55:53Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project PGS: Compilation failure: Compilation failure: 
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_PointSet.java:[190,15] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_PointSet.java:[190,9] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_PointSet.java:[190,129] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_PointSet.java:[190,130] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_PointSet.java:[190,144] ';' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[263,15] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[263,9] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[263,113] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[263,114] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[263,128] ';' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[431,34] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[431,29] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[457,36] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[594,30] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[594,25] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[594,153] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[594,154] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_ShapePredicates.java:[594,165] ';' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/GaussianLineSmoothing.java:[59,30] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/GaussianLineSmoothing.java:[59,25] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/GaussianLineSmoothing.java:[62,30] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/GaussianLineSmoothing.java:[62,25] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/VisibilityPolygon.java:[2,16] '.' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/VisibilityPolygon.java:[3,26] '.' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/VisibilityPolygon.java:[4,23] '.' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/VisibilityPolygon.java:[5,18] '.' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/VisibilityPolygon.java:[6,15] '.' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[97,34] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[97,25] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[97,41] ';' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[97,65] ';' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[98,59] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[98,38] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[98,60] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[98,61] ';' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[98,83] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[98,74] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[100,33] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/AreaMerge.java:[100,24] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Meshing.java:[714,30] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Meshing.java:[714,25] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Meshing.java:[714,185] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Meshing.java:[714,186] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Meshing.java:[714,197] ';' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Meshing.java:[716,30] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Meshing.java:[716,25] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/LittleThumblingDensifier.java:[72,34] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/LittleThumblingDensifier.java:[72,29] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/LittleThumblingDensifier.java:[73,34] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/LittleThumblingDensifier.java:[73,29] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/LittleThumblingDensifier.java:[121,98] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/LittleThumblingDensifier.java:[121,133] ';' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/LittleThumblingDensifier.java:[121,180] ';' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/LittleThumblingDensifier.java:[125,34] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/LittleThumblingDensifier.java:[125,29] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[224,38] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[224,33] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[225,38] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[225,33] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[231,38] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[231,33] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[271,34] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[271,29] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[272,34] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[272,29] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[278,34] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[278,29] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[417,38] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[417,33] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[418,38] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[418,33] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[420,42] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[420,37] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[427,38] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[427,33] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[485,38] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[485,33] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[486,38] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[486,33] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[493,42] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[493,37] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[496,38] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Morphology.java:[496,33] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/ChaikinCut.java:[120,29] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/ChaikinCut.java:[121,29] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/ChaikinCut.java:[124,29] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/ChaikinCut.java:[125,29] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/DiscreteCurveEvolution.java:[76,80] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/SeededRandomPointsInGridBuilder.java:[84,30] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/SeededRandomPointsInGridBuilder.java:[84,25] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/PGS_Hull.java:[196,36] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/RLFColoring.java:[84,32] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/RLFColoring.java:[113,40] illegal '.'
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/RLFColoring.java:[113,54] illegal start of type
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/RLFColoring.java:[113,53] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/RLFColoring.java:[113,55] ';' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/RLFColoring.java:[113,56] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/RLFColoring.java:[113,57] ';' expected
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/RLFColoring.java:[113,71] not a statement
+[ERROR] /workspace/PGS/src/main/java/micycle/pgs/commons/RLFColoring.java:[113,74] ';' expected
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

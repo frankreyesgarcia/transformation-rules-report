@@ -1,0 +1,62 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< uk.gov.pay:pay-adminusers >----------------------
+[INFO] Building pay-adminusers 0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ pay-adminusers ---
+[INFO] Deleting /workspace/pay-adminusers/target
+[INFO] 
+[INFO] --- resources:3.3.0:copy-resources (copy-resources) @ pay-adminusers ---
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ pay-adminusers ---
+[INFO] Copying 91 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ pay-adminusers ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 174 source files to /workspace/pay-adminusers/target/classes
+[INFO] /workspace/pay-adminusers/src/main/java/uk/gov/pay/adminusers/model/Link.java: Some input files use or override a deprecated API.
+[INFO] /workspace/pay-adminusers/src/main/java/uk/gov/pay/adminusers/model/Link.java: Recompile with -Xlint:deprecation for details.
+[INFO] /workspace/pay-adminusers/src/main/java/uk/gov/pay/adminusers/persistence/dao/UserDao.java: Some input files use unchecked or unsafe operations.
+[INFO] /workspace/pay-adminusers/src/main/java/uk/gov/pay/adminusers/persistence/dao/UserDao.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- swagger:2.2.2:resolve (default) @ pay-adminusers ---
+[INFO] Resolving OpenAPI specification..
+[INFO] YAML output: /workspace/pay-adminusers/openapi/adminusers_spec.yaml
+[INFO] 
+[INFO] --- resources:3.3.0:copy-resources (copy-resources) @ pay-adminusers ---
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ pay-adminusers ---
+[INFO] Copying 91 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ pay-adminusers ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 174 source files to /workspace/pay-adminusers/target/classes
+[INFO] /workspace/pay-adminusers/src/main/java/uk/gov/pay/adminusers/model/Link.java: Some input files use or override a deprecated API.
+[INFO] /workspace/pay-adminusers/src/main/java/uk/gov/pay/adminusers/model/Link.java: Recompile with -Xlint:deprecation for details.
+[INFO] /workspace/pay-adminusers/src/main/java/uk/gov/pay/adminusers/persistence/dao/UserDao.java: Some input files use unchecked or unsafe operations.
+[INFO] /workspace/pay-adminusers/src/main/java/uk/gov/pay/adminusers/persistence/dao/UserDao.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- swagger:2.2.2:resolve (default) @ pay-adminusers ---
+[INFO] Resolving OpenAPI specification..
+[INFO] YAML output: /workspace/pay-adminusers/openapi/adminusers_spec.yaml
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ pay-adminusers ---
+[INFO] Copying 25 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ pay-adminusers ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 146 source files to /workspace/pay-adminusers/target/test-classes
+[INFO] /workspace/pay-adminusers/src/test/java/uk/gov/pay/adminusers/infra/AppWithPostgresAndSqsRule.java: Some input files use or override a deprecated API.
+[INFO] /workspace/pay-adminusers/src/test/java/uk/gov/pay/adminusers/infra/AppWithPostgresAndSqsRule.java: Recompile with -Xlint:deprecation for details.
+[INFO] /workspace/pay-adminusers/src/test/java/uk/gov/pay/adminusers/service/AdminUsersExceptionsTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /workspace/pay-adminusers/src/test/java/uk/gov/pay/adminusers/service/AdminUsersExceptionsTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  22.160 s
+[INFO] Finished at: 2025-12-30T17:58:43Z
+[INFO] ------------------------------------------------------------------------

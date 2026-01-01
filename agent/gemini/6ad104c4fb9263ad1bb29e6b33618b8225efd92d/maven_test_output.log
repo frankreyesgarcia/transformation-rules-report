@@ -1,0 +1,27 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< io.github.hap-java:hap >-----------------------
+[INFO] Building hap-java 2.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- fmt:2.9:format (default) @ hap ---
+[INFO] Processed 100 files (0 reformatted).
+[INFO] Processed 200 files (0 reformatted).
+[INFO] Processed 300 files (0 reformatted).
+[INFO] Processed 349 files (0 reformatted).
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ hap ---
+[INFO] skip non existing resourceDirectory /workspace/HAP-Java/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ hap ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 347 source files to /workspace/HAP-Java/target/classes
+[INFO] /workspace/HAP-Java/src/main/java/io/github/hapjava/server/impl/http/impl/DefaultHttpRequestImpl.java: Some input files use or override a deprecated API.
+[INFO] /workspace/HAP-Java/src/main/java/io/github/hapjava/server/impl/http/impl/DefaultHttpRequestImpl.java: Recompile with -Xlint:deprecation for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  12.048 s
+[INFO] Finished at: 2025-12-30T16:43:04Z
+[INFO] ------------------------------------------------------------------------

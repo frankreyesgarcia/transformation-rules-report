@@ -1,0 +1,252 @@
+[INFO] Scanning for projects...
+[WARNING] The project org.apache.myfaces.tobago:tobago:pom:2.5.1-SNAPSHOT uses prerequisites which is only intended for maven-plugin projects but not for non maven-plugin projects. For such purposes you should use the maven-enforcer-plugin. See https://maven.apache.org/enforcer/enforcer-rules/requireMavenVersion.html
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Apache Tobago                                                      [pom]
+[INFO] Tobago Tool                                                        [pom]
+[INFO] Tobago Tool Annotation                                             [jar]
+[INFO] Tobago Tool Apt                                                    [jar]
+[INFO] Tobago Maven Theme Plugin                                 [maven-plugin]
+[INFO] Tobago Core                                                        [jar]
+[INFO] Tobago Themes                                                      [pom]
+[INFO] Tobago Theme Standard                                              [jar]
+[INFO] Tobago Theme Scarborough                                           [jar]
+[INFO] Tobago Theme Speyside                                              [jar]
+[INFO] Tobago Theme Richmond                                              [jar]
+[INFO] Tobago Theme Charlotteville                                        [jar]
+[INFO] Tobago Theme Example                                               [jar]
+[INFO] Tobago Extensions                                                  [pom]
+[INFO] Tobago Deprecation                                                 [jar]
+[INFO] Tobago Fileupload                                                  [jar]
+[INFO] Tobago Sandbox                                                     [jar]
+[INFO] Tobago Security                                                    [jar]
+[INFO] Tobago Examples                                                    [pom]
+[INFO] Tobago Example Addressbook (Java EE 6)                             [war]
+[INFO] Tobago Example Blank                                               [war]
+[INFO] Tobago Example Data                                                [jar]
+[INFO] Tobago Example Demo                                                [war]
+[INFO] Tobago Example for Portlets                                        [war]
+[INFO] Tobago Example Sandbox                                             [war]
+[INFO] Tobago Example Security                                            [war]
+[INFO] Tobago Example Test                                                [war]
+[INFO] Tobago Example Assembly                                            [pom]
+[INFO] Tobago Assembly                                                    [pom]
+[INFO] 
+[INFO] ------------------< org.apache.myfaces.tobago:tobago >------------------
+[INFO] Building Apache Tobago 2.5.1-SNAPSHOT                             [1/29]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce-maven-version) @ tobago ---
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce) @ tobago ---
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (default) @ tobago ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ tobago ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] ---------------< org.apache.myfaces.tobago:tobago-tool >----------------
+[INFO] Building Tobago Tool 2.5.1-SNAPSHOT                               [2/29]
+[INFO]   from tobago-tool/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce-maven-version) @ tobago-tool ---
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce) @ tobago-tool ---
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (default) @ tobago-tool ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ tobago-tool ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] ----------< org.apache.myfaces.tobago:tobago-tool-annotation >----------
+[INFO] Building Tobago Tool Annotation 2.5.1-SNAPSHOT                    [3/29]
+[INFO]   from tobago-tool/tobago-tool-annotation/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce-maven-version) @ tobago-tool-annotation ---
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce) @ tobago-tool-annotation ---
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (default) @ tobago-tool-annotation ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ tobago-tool-annotation ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ tobago-tool-annotation ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /workspace/myfaces-tobago/tobago-tool/tobago-tool-annotation/src/main/resources
+[INFO] Copying 3 resources
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ tobago-tool-annotation ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] -------------< org.apache.myfaces.tobago:tobago-tool-apt >--------------
+[INFO] Building Tobago Tool Apt 2.5.1-SNAPSHOT                           [4/29]
+[INFO]   from tobago-tool/tobago-tool-apt/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce-maven-version) @ tobago-tool-apt ---
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce) @ tobago-tool-apt ---
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (default) @ tobago-tool-apt ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ tobago-tool-apt ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ tobago-tool-apt ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 5 resources
+[INFO] Copying 3 resources
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ tobago-tool-apt ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] -----------< org.apache.myfaces.tobago:tobago-theme-plugin >------------
+[INFO] Building Tobago Maven Theme Plugin 2.5.1-SNAPSHOT                 [5/29]
+[INFO]   from tobago-tool/tobago-theme-plugin/pom.xml
+[INFO] ----------------------------[ maven-plugin ]----------------------------
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce-maven-version) @ tobago-theme-plugin ---
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce) @ tobago-theme-plugin ---
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (default) @ tobago-theme-plugin ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ tobago-theme-plugin ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ tobago-theme-plugin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 2 resources
+[INFO] Copying 3 resources
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ tobago-theme-plugin ---
+[INFO] Compiling 3 source files to /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/target/classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] bootstrap class path not set in conjunction with -source 7
+[WARNING] source value 7 is obsolete and will be removed in a future release
+[WARNING] target value 7 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 4 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/IndexThemeMojo.java:[86,42] illegal '.'
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/IndexThemeMojo.java:[86,36] not a statement
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[65,102] illegal '.'
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[65,160] ';' expected
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[67,50] illegal '.'
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[67,44] not a statement
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[72,11] 'catch' without 'try'
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[79,5] illegal start of expression
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[109,119] illegal '.'
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[121,127] illegal '.'
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[121,166] ';' expected
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[130,84] illegal '.'
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[130,91] ';' expected
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[150,66] illegal '.'
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[150,60] not a statement
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[104,29] 'try' without 'catch', 'finally' or resource declarations
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[162,11] 'catch' without 'try'
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[80,9] 'try' without 'catch', 'finally' or resource declarations
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[167,5] illegal start of expression
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[168,70] illegal '.'
+[INFO] 20 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Apache Tobago 2.5.1-SNAPSHOT:
+[INFO] 
+[INFO] Apache Tobago ...................................... SUCCESS [  1.891 s]
+[INFO] Tobago Tool ........................................ SUCCESS [  0.082 s]
+[INFO] Tobago Tool Annotation ............................. SUCCESS [  0.554 s]
+[INFO] Tobago Tool Apt .................................... SUCCESS [  0.301 s]
+[INFO] Tobago Maven Theme Plugin .......................... FAILURE [  1.153 s]
+[INFO] Tobago Core ........................................ SKIPPED
+[INFO] Tobago Themes ...................................... SKIPPED
+[INFO] Tobago Theme Standard .............................. SKIPPED
+[INFO] Tobago Theme Scarborough ........................... SKIPPED
+[INFO] Tobago Theme Speyside .............................. SKIPPED
+[INFO] Tobago Theme Richmond .............................. SKIPPED
+[INFO] Tobago Theme Charlotteville ........................ SKIPPED
+[INFO] Tobago Theme Example ............................... SKIPPED
+[INFO] Tobago Extensions .................................. SKIPPED
+[INFO] Tobago Deprecation ................................. SKIPPED
+[INFO] Tobago Fileupload .................................. SKIPPED
+[INFO] Tobago Sandbox ..................................... SKIPPED
+[INFO] Tobago Security .................................... SKIPPED
+[INFO] Tobago Examples .................................... SKIPPED
+[INFO] Tobago Example Addressbook (Java EE 6) ............. SKIPPED
+[INFO] Tobago Example Blank ............................... SKIPPED
+[INFO] Tobago Example Data ................................ SKIPPED
+[INFO] Tobago Example Demo ................................ SKIPPED
+[INFO] Tobago Example for Portlets ........................ SKIPPED
+[INFO] Tobago Example Sandbox ............................. SKIPPED
+[INFO] Tobago Example Security ............................ SKIPPED
+[INFO] Tobago Example Test ................................ SKIPPED
+[INFO] Tobago Example Assembly ............................ SKIPPED
+[INFO] Tobago Assembly .................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.926 s
+[INFO] Finished at: 2025-12-30T22:07:13Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project tobago-theme-plugin: Compilation failure: Compilation failure: 
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/IndexThemeMojo.java:[86,42] illegal '.'
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/IndexThemeMojo.java:[86,36] not a statement
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[65,102] illegal '.'
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[65,160] ';' expected
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[67,50] illegal '.'
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[67,44] not a statement
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[72,11] 'catch' without 'try'
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[79,5] illegal start of expression
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[109,119] illegal '.'
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[121,127] illegal '.'
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[121,166] ';' expected
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[130,84] illegal '.'
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[130,91] ';' expected
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[150,66] illegal '.'
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[150,60] not a statement
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[104,29] 'try' without 'catch', 'finally' or resource declarations
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[162,11] 'catch' without 'try'
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[80,9] 'try' without 'catch', 'finally' or resource declarations
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[167,5] illegal start of expression
+[ERROR] /workspace/myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[168,70] illegal '.'
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :tobago-theme-plugin

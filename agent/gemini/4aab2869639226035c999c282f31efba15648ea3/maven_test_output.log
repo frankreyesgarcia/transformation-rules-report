@@ -1,0 +1,26 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< com.artipie:http >--------------------------
+[INFO] Building Artipie HTTP 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.0.0:enforce (enforce-maven) @ http ---
+[INFO] 
+[INFO] --- jacoco:0.8.7:prepare-agent (jacoco-initialize) @ http ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/workspace/http/target/jacoco.exec,output=file
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ http ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /workspace/http/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ http ---
+[WARNING]  Parameter 'optimize' (user property 'maven.compiler.optimize') is deprecated: This property is a no-op in {@code javac}.
+[INFO] Compiling 130 source files to /workspace/http/target/classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.500 s
+[INFO] Finished at: 2025-12-30T16:02:45Z
+[INFO] ------------------------------------------------------------------------

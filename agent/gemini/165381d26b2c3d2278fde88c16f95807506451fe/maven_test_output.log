@@ -1,0 +1,163 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 9 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 9 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] scheduler                                                          [pom]
+[INFO] scheduler-api                                                      [jar]
+[INFO] scheduler-json                                                     [jar]
+[INFO] scheduler-choco                                                    [jar]
+[INFO] scheduler-examples                                                 [jar]
+[INFO] btrpsl                                                             [jar]
+[INFO] safeplace                                                          [jar]
+[INFO] bench                                                              [jar]
+[INFO] scheduler-split                                                    [jar]
+[INFO] 
+[INFO] -----------------------< org.btrplace:scheduler >-----------------------
+[INFO] Building scheduler 1.12.1-SNAPSHOT                                 [1/9]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.7:prepare-agent (default) @ scheduler ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/workspace/scheduler/target/jacoco.exec,excludes=org/btrplace/btrpsl/**/*:org/btrplace/safeplace/**/*:org/btrplace/bench/**/*:org/btrplace/scheduler/runner/disjoint/**/*
+[INFO] 
+[INFO] ---------------------< org.btrplace:scheduler-api >---------------------
+[INFO] Building scheduler-api 1.12.1-SNAPSHOT                             [2/9]
+[INFO]   from api/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.7:prepare-agent (default) @ scheduler-api ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/workspace/scheduler/api/target/jacoco.exec,excludes=org/btrplace/btrpsl/**/*:org/btrplace/safeplace/**/*:org/btrplace/bench/**/*:org/btrplace/scheduler/runner/disjoint/**/*
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ scheduler-api ---
+[INFO] skip non existing resourceDirectory /workspace/scheduler/api/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ scheduler-api ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --------------------< org.btrplace:scheduler-json >---------------------
+[INFO] Building scheduler-json 1.12.1-SNAPSHOT                            [3/9]
+[INFO]   from json/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.7:prepare-agent (default) @ scheduler-json ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/workspace/scheduler/json/target/jacoco.exec,excludes=org/btrplace/btrpsl/**/*:org/btrplace/safeplace/**/*:org/btrplace/bench/**/*:org/btrplace/scheduler/runner/disjoint/**/*
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ scheduler-json ---
+[INFO] skip non existing resourceDirectory /workspace/scheduler/json/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ scheduler-json ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --------------------< org.btrplace:scheduler-choco >--------------------
+[INFO] Building scheduler-choco 1.12.1-SNAPSHOT                           [4/9]
+[INFO]   from choco/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.7:prepare-agent (default) @ scheduler-choco ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/workspace/scheduler/choco/target/jacoco.exec,excludes=org/btrplace/btrpsl/**/*:org/btrplace/safeplace/**/*:org/btrplace/bench/**/*:org/btrplace/scheduler/runner/disjoint/**/*
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ scheduler-choco ---
+[INFO] skip non existing resourceDirectory /workspace/scheduler/choco/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ scheduler-choco ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] ------------------< org.btrplace:scheduler-examples >-------------------
+[INFO] Building scheduler-examples 1.12.1-SNAPSHOT                        [5/9]
+[INFO]   from examples/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.7:prepare-agent (default) @ scheduler-examples ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/workspace/scheduler/examples/target/jacoco.exec,excludes=org/btrplace/btrpsl/**/*:org/btrplace/safeplace/**/*:org/btrplace/bench/**/*:org/btrplace/scheduler/runner/disjoint/**/*
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ scheduler-examples ---
+[INFO] skip non existing resourceDirectory /workspace/scheduler/examples/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ scheduler-examples ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] ------------------------< org.btrplace:btrpsl >-------------------------
+[INFO] Building btrpsl 1.12.1-SNAPSHOT                                    [6/9]
+[INFO]   from btrpsl/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.7:prepare-agent (default) @ btrpsl ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/workspace/scheduler/btrpsl/target/jacoco.exec,excludes=org/btrplace/btrpsl/**/*:org/btrplace/safeplace/**/*:org/btrplace/bench/**/*:org/btrplace/scheduler/runner/disjoint/**/*
+[INFO] 
+[INFO] --- antlr3:3.5.2:antlr (default) @ btrpsl ---
+[INFO] ANTLR: Processing source directory /workspace/scheduler/btrpsl/src/main/antlr3
+ANTLR Parser Generator  Version 3.5.2
+Grammar /workspace/scheduler/btrpsl/src/main/antlr3/org/btrplace/btrpsl/antlr/ANTLRBtrplaceSL2.g is up to date - build skipped
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ btrpsl ---
+[INFO] skip non existing resourceDirectory /workspace/scheduler/btrpsl/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ btrpsl ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] -----------------------< org.btrplace:safeplace >-----------------------
+[INFO] Building safeplace 1.12.1-SNAPSHOT                                 [7/9]
+[INFO]   from safeplace/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.7:prepare-agent (default) @ safeplace ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/workspace/scheduler/safeplace/target/jacoco.exec,excludes=org/btrplace/btrpsl/**/*:org/btrplace/safeplace/**/*:org/btrplace/bench/**/*:org/btrplace/scheduler/runner/disjoint/**/*
+[INFO] 
+[INFO] --- antlr4:4.9.3:antlr4 (default) @ safeplace ---
+[INFO] No grammars to process
+[INFO] ANTLR 4: Processing source directory /workspace/scheduler/safeplace/src/main/antlr
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ safeplace ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ safeplace ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] -------------------------< org.btrplace:bench >-------------------------
+[INFO] Building bench 1.12.1-SNAPSHOT                                     [8/9]
+[INFO]   from bench/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.7:prepare-agent (default) @ bench ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/workspace/scheduler/bench/target/jacoco.exec,excludes=org/btrplace/btrpsl/**/*:org/btrplace/safeplace/**/*:org/btrplace/bench/**/*:org/btrplace/scheduler/runner/disjoint/**/*
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ bench ---
+[INFO] skip non existing resourceDirectory /workspace/scheduler/bench/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ bench ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] -------------------------< org.btrplace:split >-------------------------
+[INFO] Building scheduler-split 1.12.1-SNAPSHOT                           [9/9]
+[INFO]   from split/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.7:prepare-agent (default) @ split ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/workspace/scheduler/split/target/jacoco.exec,excludes=org/btrplace/btrpsl/**/*:org/btrplace/safeplace/**/*:org/btrplace/bench/**/*:org/btrplace/scheduler/runner/disjoint/**/*
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ split ---
+[INFO] skip non existing resourceDirectory /workspace/scheduler/split/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ split ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for scheduler 1.12.1-SNAPSHOT:
+[INFO] 
+[INFO] scheduler .......................................... SUCCESS [  0.741 s]
+[INFO] scheduler-api ...................................... SUCCESS [  0.654 s]
+[INFO] scheduler-json ..................................... SUCCESS [  0.076 s]
+[INFO] scheduler-choco .................................... SUCCESS [  0.159 s]
+[INFO] scheduler-examples ................................. SUCCESS [  0.054 s]
+[INFO] btrpsl ............................................. SUCCESS [  0.746 s]
+[INFO] safeplace .......................................... SUCCESS [  0.342 s]
+[INFO] bench .............................................. SUCCESS [  0.092 s]
+[INFO] scheduler-split .................................... SUCCESS [  0.091 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.152 s
+[INFO] Finished at: 2025-12-30T13:42:04Z
+[INFO] ------------------------------------------------------------------------

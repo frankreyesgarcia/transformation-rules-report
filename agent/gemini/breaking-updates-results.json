@@ -1,0 +1,1262 @@
+{
+  "00a7cc31784ac4a9cc27d506a73ae589d6df36d6" : {
+    "breakingCommit" : "00a7cc31784ac4a9cc27d506a73ae589d6df36d6",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "067f5d2c81ff87c90755f4ed48f62eb5faa8ecf9" : {
+    "breakingCommit" : "067f5d2c81ff87c90755f4ed48f62eb5faa8ecf9",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "07fad972bb884e9fa6143b4f870d08305811607d" : {
+    "breakingCommit" : "07fad972bb884e9fa6143b4f870d08305811607d",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "0abf7148300f40a1da0538ab060552bca4a2f1d8" : {
+    "breakingCommit" : "0abf7148300f40a1da0538ab060552bca4a2f1d8",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "13fd75e233a5cb2771a6cb186c0decaed6d6545a" : {
+    "breakingCommit" : "13fd75e233a5cb2771a6cb186c0decaed6d6545a",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "165381d26b2c3d2278fde88c16f95807506451fe" : {
+    "breakingCommit" : "165381d26b2c3d2278fde88c16f95807506451fe",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "17f2bcaaba4805b218743f575919360c5aec5da4" : {
+    "breakingCommit" : "17f2bcaaba4805b218743f575919360c5aec5da4",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "COMPILATION_FAILURE",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : false
+    } ]
+  },
+  "1820a966ae02ad8df44d0a0106cba65ceaf3aa95" : {
+    "breakingCommit" : "1820a966ae02ad8df44d0a0106cba65ceaf3aa95",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "1c0972fc3d905b9f2a305a78f8a158a0b3fd8639" : {
+    "breakingCommit" : "1c0972fc3d905b9f2a305a78f8a158a0b3fd8639",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "1cc7071371953a7880c2c2c3a5a32c36af7f88f9" : {
+    "breakingCommit" : "1cc7071371953a7880c2c2c3a5a32c36af7f88f9",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "1ef97ea6c5b6e34151fe6167001b69e003449f95" : {
+    "breakingCommit" : "1ef97ea6c5b6e34151fe6167001b69e003449f95",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "249c3b394540fde4fcb72f66172af5e02b9c637e" : {
+    "breakingCommit" : "249c3b394540fde4fcb72f66172af5e02b9c637e",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "DEPENDENCY_RESOLUTION_FAILURE",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : false
+    } ]
+  },
+  "24d4a90ec1b375751e71f33d18949405c9529d77" : {
+    "breakingCommit" : "24d4a90ec1b375751e71f33d18949405c9529d77",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "3572a1ecc0154c61e05505aed56055b9c5e539a6" : {
+    "breakingCommit" : "3572a1ecc0154c61e05505aed56055b9c5e539a6",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "38c9915f0cfdf0c1a2b17c3c6f283c23a0aac0cf" : {
+    "breakingCommit" : "38c9915f0cfdf0c1a2b17c3c6f283c23a0aac0cf",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "40feecdd9c649644668d7c84bb87b73a2b2723ca" : {
+    "breakingCommit" : "40feecdd9c649644668d7c84bb87b73a2b2723ca",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "43b3a858b77ec27fc8946aba292001c3de465012" : {
+    "breakingCommit" : "43b3a858b77ec27fc8946aba292001c3de465012",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "43c824a24b09efd8b4b00449ce31cd121a6b23eb" : {
+    "breakingCommit" : "43c824a24b09efd8b4b00449ce31cd121a6b23eb",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "4a3efad6e00824e5814b9c8f571c9c98aad40281" : {
+    "breakingCommit" : "4a3efad6e00824e5814b9c8f571c9c98aad40281",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "4aab2869639226035c999c282f31efba15648ea3" : {
+    "breakingCommit" : "4aab2869639226035c999c282f31efba15648ea3",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "54abbbde6a1233e1523a9b5f811ea100efb5dead" : {
+    "breakingCommit" : "54abbbde6a1233e1523a9b5f811ea100efb5dead",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "5769bdad76925da568294cb8a40e7d4469699ac3" : {
+    "breakingCommit" : "5769bdad76925da568294cb8a40e7d4469699ac3",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "5fcd0c3ad7727850c47602b17530dc355e5bd097" : {
+    "breakingCommit" : "5fcd0c3ad7727850c47602b17530dc355e5bd097",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "61e96bfe3a32d6ef2e5d7912a518c78bd5474e74" : {
+    "breakingCommit" : "61e96bfe3a32d6ef2e5d7912a518c78bd5474e74",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "65200df71d5f6ab1c5502f74a5dc7bcbda459563" : {
+    "breakingCommit" : "65200df71d5f6ab1c5502f74a5dc7bcbda459563",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "6ad104c4fb9263ad1bb29e6b33618b8225efd92d" : {
+    "breakingCommit" : "6ad104c4fb9263ad1bb29e6b33618b8225efd92d",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "6c53cd904bd66fc79af8687571e607c259226b81" : {
+    "breakingCommit" : "6c53cd904bd66fc79af8687571e607c259226b81",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "6c9a2ecf3bac1e0c7675e03b2828a71450d8ed45" : {
+    "breakingCommit" : "6c9a2ecf3bac1e0c7675e03b2828a71450d8ed45",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "741f3b5e20a91b0e9305ae79261e3c5e64971c98" : {
+    "breakingCommit" : "741f3b5e20a91b0e9305ae79261e3c5e64971c98",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "7d97e1c7331f6722eb1d8192bf0a2686f5a33798" : {
+    "breakingCommit" : "7d97e1c7331f6722eb1d8192bf0a2686f5a33798",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "7f7de81d28b68b091bef2e6f6ffd1836167be6ea" : {
+    "breakingCommit" : "7f7de81d28b68b091bef2e6f6ffd1836167be6ea",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "832e0f184efdad0fcf15d14cb7af5e30239ff454" : {
+    "breakingCommit" : "832e0f184efdad0fcf15d14cb7af5e30239ff454",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "867e69e208ff59d1f8baae7ed41d3e163a51bc65" : {
+    "breakingCommit" : "867e69e208ff59d1f8baae7ed41d3e163a51bc65",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "874ed893a4e46ea5182be2be054715967e58f08f" : {
+    "breakingCommit" : "874ed893a4e46ea5182be2be054715967e58f08f",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "90ffd2cd31edecf778d14d0015da9ceab7e53081" : {
+    "breakingCommit" : "90ffd2cd31edecf778d14d0015da9ceab7e53081",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "9461431622cf39efe60cf1eb03a94083780c5720" : {
+    "breakingCommit" : "9461431622cf39efe60cf1eb03a94083780c5720",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "COMPILATION_FAILURE",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : false
+    } ]
+  },
+  "9717e34bcda74bd9ad94f6a52ddfd3fd179ea15b" : {
+    "breakingCommit" : "9717e34bcda74bd9ad94f6a52ddfd3fd179ea15b",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "979d6237a50840cd925cc1a33c415ffbbbc42846" : {
+    "breakingCommit" : "979d6237a50840cd925cc1a33c415ffbbbc42846",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "9836e07e553e29f16ee35b5d7e4d0370e1789ecd" : {
+    "breakingCommit" : "9836e07e553e29f16ee35b5d7e4d0370e1789ecd",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "9a8b6fc7847a0782ae4c48d0e4f7056507c0397d" : {
+    "breakingCommit" : "9a8b6fc7847a0782ae4c48d0e4f7056507c0397d",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "a26797cdeeecaa3b900ea1e0d5ec0cec66bf03ff" : {
+    "breakingCommit" : "a26797cdeeecaa3b900ea1e0d5ec0cec66bf03ff",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "a4c360001134c2e3a9f7fbde88a07a9fd767e78e" : {
+    "breakingCommit" : "a4c360001134c2e3a9f7fbde88a07a9fd767e78e",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "a80dac86d1caa3958c45c036d93a7d9231d88fbf" : {
+    "breakingCommit" : "a80dac86d1caa3958c45c036d93a7d9231d88fbf",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "a9df7b2235224fcabefa1d62e8956911aa5bb825" : {
+    "breakingCommit" : "a9df7b2235224fcabefa1d62e8956911aa5bb825",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "ab85440ce7321d895c7a9621224ce8059162a26a" : {
+    "breakingCommit" : "ab85440ce7321d895c7a9621224ce8059162a26a",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "acc50dabec6796c091b84c1ada2ae4cbcab8b562" : {
+    "breakingCommit" : "acc50dabec6796c091b84c1ada2ae4cbcab8b562",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "ae0a0bd1311451e4a5a185a8d96405cfe3e049c5" : {
+    "breakingCommit" : "ae0a0bd1311451e4a5a185a8d96405cfe3e049c5",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "b554e03428f2ba877c33a0fece7f0f00fb38a5fa" : {
+    "breakingCommit" : "b554e03428f2ba877c33a0fece7f0f00fb38a5fa",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "b5b64613a1a650a5784ff39386b4e00e05e5c21c" : {
+    "breakingCommit" : "b5b64613a1a650a5784ff39386b4e00e05e5c21c",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "bd3ce213e2771c6ef7817c80818807a757d4e94a" : {
+    "breakingCommit" : "bd3ce213e2771c6ef7817c80818807a757d4e94a",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "c09896887acf0fe59320e01145a7034cd8d4e326" : {
+    "breakingCommit" : "c09896887acf0fe59320e01145a7034cd8d4e326",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "c0f6ab75784dbc13ae8ff47298704c0756cf3a2c" : {
+    "breakingCommit" : "c0f6ab75784dbc13ae8ff47298704c0756cf3a2c",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "c311ee0a84b72b15ba64da3514181c2347912225" : {
+    "breakingCommit" : "c311ee0a84b72b15ba64da3514181c2347912225",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "c7c9590a206d4fb77dd05b9df391d888e6181667" : {
+    "breakingCommit" : "c7c9590a206d4fb77dd05b9df391d888e6181667",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "cbcafe129e143ef09401470e9d11de9758f298d0" : {
+    "breakingCommit" : "cbcafe129e143ef09401470e9d11de9758f298d0",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "d38182a8a0fe1ec039aed97e103864fce717a0be" : {
+    "breakingCommit" : "d38182a8a0fe1ec039aed97e103864fce717a0be",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "d401e189fb6435110e3dc4ca1a94838f167e7ddf" : {
+    "breakingCommit" : "d401e189fb6435110e3dc4ca1a94838f167e7ddf",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "d54b56b91c11f21b97d4903143b04b7c1f10c255" : {
+    "breakingCommit" : "d54b56b91c11f21b97d4903143b04b7c1f10c255",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "db02c6bcb989a5b0f08861c3344b532769530467" : {
+    "breakingCommit" : "db02c6bcb989a5b0f08861c3344b532769530467",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "dbdc7d2c4a28a8d65edcd0cdece91c0bc357b869" : {
+    "breakingCommit" : "dbdc7d2c4a28a8d65edcd0cdece91c0bc357b869",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "dcc95f410847ab308db2f2a31ab13e32dc65c670" : {
+    "breakingCommit" : "dcc95f410847ab308db2f2a31ab13e32dc65c670",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "BUILD_SUCCESS",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : true
+    } ]
+  },
+  "f5bc873a4b68e87761a65064ebea9ad8c3fb085f" : {
+    "breakingCommit" : "f5bc873a4b68e87761a65064ebea9ad8c3fb085f",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "COMPILATION_FAILURE",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : false
+    } ]
+  },
+  "f6659d758a437f8b676481fe70671a68a6ee1cde" : {
+    "breakingCommit" : "f6659d758a437f8b676481fe70671a68a6ee1cde",
+    "originalFailureCategory" : "COMPILATION_FAILURE",
+    "attempts" : [ {
+      "index" : 1,
+      "failureCategory" : "COMPILATION_FAILURE",
+      "prefixFiles" : 0,
+      "postfixFiles" : 0,
+      "fixedFiles" : 0,
+      "unfixedFiles" : 0,
+      "newFiles" : 0,
+      "prefixErrors" : 0,
+      "postfixErrors" : 0,
+      "fixedErrors" : 0,
+      "unfixedErrors" : 0,
+      "newErrors" : 0,
+      "outputFolder" : "/home/kth/Documents/last_transformer/spoon-rules-report/agent/gemini",
+      "successful" : false
+    } ]
+  }
+}
