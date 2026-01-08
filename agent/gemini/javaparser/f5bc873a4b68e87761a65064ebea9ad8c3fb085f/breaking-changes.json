@@ -1,0 +1,13 @@
+{
+  "project" : "myfaces-tobago",
+  "breakingCommit" : "f5bc873a4b68e87761a65064ebea9ad8c3fb085f",
+  "dependencyGroupId" : "org.apache.maven",
+  "dependencyArtifactId" : "maven-archiver",
+  "previousVersion" : "3.5.2",
+  "newVersion" : "3.6.0",
+  "oldJar" : "/home/frank/transformer/output/f5bc873a4b68e87761a65064ebea9ad8c3fb085f/maven-archiver-3.5.2.jar",
+  "newJar" : "/home/frank/transformer/output/f5bc873a4b68e87761a65064ebea9ad8c3fb085f/maven-archiver-3.6.0.jar",
+  "generatedAt" : "2026-01-07T15:02:36.283268945Z",
+  "totalBreakingChanges" : 0,
+  "breakingChanges" : [ ]
+}

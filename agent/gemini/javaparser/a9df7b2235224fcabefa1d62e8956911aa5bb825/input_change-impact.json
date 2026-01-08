@@ -1,0 +1,19 @@
+{
+  "project" : "polyglot-maven",
+  "breakingCommit" : "a9df7b2235224fcabefa1d62e8956911aa5bb825",
+  "dependency" : {
+    "groupId" : "org.yaml",
+    "artifactId" : "snakeyaml",
+    "previousVersion" : "1.17",
+    "newVersion" : "1.32",
+    "previousJar" : "/home/frank/transformer/output/a9df7b2235224fcabefa1d62e8956911aa5bb825/snakeyaml-1.17.jar",
+    "newJar" : "/home/frank/transformer/output/a9df7b2235224fcabefa1d62e8956911aa5bb825/snakeyaml-1.32.jar"
+  },
+  "classification" : {
+    "datasetCategory" : "COMPILATION_FAILURE",
+    "inferredCategory" : "COMPILATION_FAILURE",
+    "logFile" : "/home/frank/transformer/output/a9df7b2235224fcabefa1d62e8956911aa5bb825/polyglot-maven/a9df7b2235224fcabefa1d62e8956911aa5bb825.log",
+    "classifierReport" : "report_javaparser/agent/gemini/javaparser/a9df7b2235224fcabefa1d62e8956911aa5bb825/breaking-classifier-report.json"
+  },
+  "files" : [ ]
+}

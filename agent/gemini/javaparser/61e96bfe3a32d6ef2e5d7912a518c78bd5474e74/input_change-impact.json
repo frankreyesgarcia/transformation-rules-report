@@ -1,0 +1,175 @@
+{
+  "project" : "singer",
+  "breakingCommit" : "61e96bfe3a32d6ef2e5d7912a518c78bd5474e74",
+  "dependency" : {
+    "groupId" : "ch.qos.logback",
+    "artifactId" : "logback-core",
+    "previousVersion" : "1.1.11",
+    "newVersion" : "1.2.9",
+    "previousJar" : "/home/frank/transformer/output/61e96bfe3a32d6ef2e5d7912a518c78bd5474e74/logback-core-1.1.11.jar",
+    "newJar" : "/home/frank/transformer/output/61e96bfe3a32d6ef2e5d7912a518c78bd5474e74/logback-core-1.2.9.jar"
+  },
+  "classification" : {
+    "datasetCategory" : "COMPILATION_FAILURE",
+    "inferredCategory" : "COMPILATION_FAILURE",
+    "logFile" : "/home/frank/transformer/output/61e96bfe3a32d6ef2e5d7912a518c78bd5474e74/singer/61e96bfe3a32d6ef2e5d7912a518c78bd5474e74.log",
+    "classifierReport" : "report_javaparser/agent/gemini/javaparser/61e96bfe3a32d6ef2e5d7912a518c78bd5474e74/breaking-classifier-report.json"
+  },
+  "files" : [ {
+    "filePath" : "/singer/thrift-logger/src/main/java/com/pinterest/singer/client/logback/AppenderUtils.java",
+    "errors" : [ {
+      "lineNumber" : 51,
+      "columnNumber" : 17,
+      "message" : "com.pinterest.singer.client.logback.AppenderUtils.LogMessageEncoder is not abstract and does not override abstract method footerBytes() in ch.qos.logback.core.encoder.Encoder",
+      "details" : [ ],
+      "status" : "SUCCESS",
+      "errorMessage" : null,
+      "changeImpact" : {
+        "projectPath" : "/home/frank/transformer/output/61e96bfe3a32d6ef2e5d7912a518c78bd5474e74/singer",
+        "sourceFile" : "/home/frank/transformer/output/61e96bfe3a32d6ef2e5d7912a518c78bd5474e74/singer/thrift-logger/src/main/java/com/pinterest/singer/client/logback/AppenderUtils.java",
+        "lineNumber" : 51,
+        "oldJar" : "/home/frank/transformer/output/61e96bfe3a32d6ef2e5d7912a518c78bd5474e74/logback-core-1.1.11.jar",
+        "newJar" : "/home/frank/transformer/output/61e96bfe3a32d6ef2e5d7912a518c78bd5474e74/logback-core-1.2.9.jar",
+        "generatedAt" : "2026-01-07T12:57:17.817315060Z",
+        "constructs" : [ {
+          "constructType" : "TYPE_REFERENCE",
+          "signature" : "ch.qos.logback.core.encoder.EncoderBase",
+          "dependency" : {
+            "origin" : "MAVEN_DEPENDENCY",
+            "groupId" : "com.example",
+            "artifactId" : "core",
+            "version" : "1.0.0-SNAPSHOT",
+            "coordinates" : "com.example:core:1.0.0-SNAPSHOT",
+            "sourcePath" : "/home/frank/transformer/transformer-agent/core/target/core-cli-1.0.0-SNAPSHOT.jar"
+          },
+          "lineNumber" : 51,
+          "codeLine" : "  public static class LogMessageEncoder extends EncoderBase<LogMessage> {",
+          "apiChanges" : [ {
+            "elementType" : "CLASS",
+            "matchType" : "CLASS",
+            "name" : "ch.qos.logback.core.encoder.EncoderBase",
+            "declaringType" : "ch.qos.logback.core.encoder.EncoderBase",
+            "qualifiedSignature" : "ch.qos.logback.core.encoder.EncoderBase",
+            "changeStatus" : "MODIFIED",
+            "binaryCompatible" : false,
+            "sourceCompatible" : false,
+            "compatibilityChanges" : [ {
+              "type" : "METHOD_ABSTRACT_ADDED_IN_IMPLEMENTED_INTERFACE",
+              "binaryCompatible" : true,
+              "sourceCompatible" : false,
+              "semanticVersionImpact" : "MINOR"
+            } ],
+            "signature" : null,
+            "value" : null,
+            "parameterTypes" : null,
+            "changedMemberCount" : 2
+          } ]
+        }, {
+          "constructType" : "TYPE_REFERENCE",
+          "signature" : "com.pinterest.singer.thrift.LogMessage",
+          "dependency" : {
+            "origin" : "PROJECT_SOURCE",
+            "groupId" : null,
+            "artifactId" : null,
+            "version" : null,
+            "coordinates" : "PROJECT_SOURCE",
+            "sourcePath" : "singer-commons/target/generated-sources/thrift/scrooge/com/pinterest/singer/thrift/LogMessage.java"
+          },
+          "lineNumber" : 51,
+          "codeLine" : "  public static class LogMessageEncoder extends EncoderBase<LogMessage> {",
+          "apiChanges" : [ ]
+        } ]
+      }
+    }, {
+      "lineNumber" : 57,
+      "columnNumber" : 5,
+      "message" : "method does not override or implement a method from a supertype",
+      "details" : [ ],
+      "status" : "SUCCESS",
+      "errorMessage" : null,
+      "changeImpact" : {
+        "projectPath" : "/home/frank/transformer/output/61e96bfe3a32d6ef2e5d7912a518c78bd5474e74/singer",
+        "sourceFile" : "/home/frank/transformer/output/61e96bfe3a32d6ef2e5d7912a518c78bd5474e74/singer/thrift-logger/src/main/java/com/pinterest/singer/client/logback/AppenderUtils.java",
+        "lineNumber" : 57,
+        "oldJar" : "/home/frank/transformer/output/61e96bfe3a32d6ef2e5d7912a518c78bd5474e74/logback-core-1.1.11.jar",
+        "newJar" : "/home/frank/transformer/output/61e96bfe3a32d6ef2e5d7912a518c78bd5474e74/logback-core-1.2.9.jar",
+        "generatedAt" : "2026-01-07T12:57:17.817826015Z",
+        "constructs" : [ {
+          "constructType" : "ANNOTATION_USAGE",
+          "signature" : "java.lang.Override",
+          "dependency" : {
+            "origin" : "JDK",
+            "groupId" : "java",
+            "artifactId" : "java.base",
+            "version" : null,
+            "coordinates" : "java:java.base",
+            "sourcePath" : null
+          },
+          "lineNumber" : 57,
+          "codeLine" : "    @Override",
+          "apiChanges" : [ ]
+        } ]
+      }
+    }, {
+      "lineNumber" : 68,
+      "columnNumber" : 5,
+      "message" : "method does not override or implement a method from a supertype",
+      "details" : [ ],
+      "status" : "SUCCESS",
+      "errorMessage" : null,
+      "changeImpact" : {
+        "projectPath" : "/home/frank/transformer/output/61e96bfe3a32d6ef2e5d7912a518c78bd5474e74/singer",
+        "sourceFile" : "/home/frank/transformer/output/61e96bfe3a32d6ef2e5d7912a518c78bd5474e74/singer/thrift-logger/src/main/java/com/pinterest/singer/client/logback/AppenderUtils.java",
+        "lineNumber" : 68,
+        "oldJar" : "/home/frank/transformer/output/61e96bfe3a32d6ef2e5d7912a518c78bd5474e74/logback-core-1.1.11.jar",
+        "newJar" : "/home/frank/transformer/output/61e96bfe3a32d6ef2e5d7912a518c78bd5474e74/logback-core-1.2.9.jar",
+        "generatedAt" : "2026-01-07T12:57:17.818137322Z",
+        "constructs" : [ {
+          "constructType" : "ANNOTATION_USAGE",
+          "signature" : "java.lang.Override",
+          "dependency" : {
+            "origin" : "JDK",
+            "groupId" : "java",
+            "artifactId" : "java.base",
+            "version" : null,
+            "coordinates" : "java:java.base",
+            "sourcePath" : null
+          },
+          "lineNumber" : 68,
+          "codeLine" : "    @Override",
+          "apiChanges" : [ ]
+        } ]
+      }
+    }, {
+      "lineNumber" : 78,
+      "columnNumber" : 5,
+      "message" : "method does not override or implement a method from a supertype",
+      "details" : [ ],
+      "status" : "SUCCESS",
+      "errorMessage" : null,
+      "changeImpact" : {
+        "projectPath" : "/home/frank/transformer/output/61e96bfe3a32d6ef2e5d7912a518c78bd5474e74/singer",
+        "sourceFile" : "/home/frank/transformer/output/61e96bfe3a32d6ef2e5d7912a518c78bd5474e74/singer/thrift-logger/src/main/java/com/pinterest/singer/client/logback/AppenderUtils.java",
+        "lineNumber" : 78,
+        "oldJar" : "/home/frank/transformer/output/61e96bfe3a32d6ef2e5d7912a518c78bd5474e74/logback-core-1.1.11.jar",
+        "newJar" : "/home/frank/transformer/output/61e96bfe3a32d6ef2e5d7912a518c78bd5474e74/logback-core-1.2.9.jar",
+        "generatedAt" : "2026-01-07T12:57:17.818377138Z",
+        "constructs" : [ {
+          "constructType" : "ANNOTATION_USAGE",
+          "signature" : "java.lang.Override",
+          "dependency" : {
+            "origin" : "JDK",
+            "groupId" : "java",
+            "artifactId" : "java.base",
+            "version" : null,
+            "coordinates" : "java:java.base",
+            "sourcePath" : null
+          },
+          "lineNumber" : 78,
+          "codeLine" : "    @Override",
+          "apiChanges" : [ ]
+        } ]
+      }
+    } ]
+  } ]
+}
