@@ -1,24 +1,3 @@
-[INFO] Scanning for projects...
-[INFO] Inspecting build with total of 1 modules...
-[INFO] Installing Nexus Staging features:
-[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
-[INFO] 
-[INFO] -----------------------< com.saucelabs:ci-sauce >-----------------------
-[INFO] Building ci-sauce 1.160-SNAPSHOT
-[INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- jacoco:0.8.8:prepare-agent (default) @ ci-sauce ---
-[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/workspace/ci-sauce/target/jacoco.exec
-[INFO] 
-[INFO] --- resources:3.3.1:resources (default-resources) @ ci-sauce ---
-[INFO] Copying 6 resources from src/main/resources to target/classes
-[INFO] 
-[INFO] --- compiler:3.10.1:compile (default-compile) @ ci-sauce ---
-[INFO] Nothing to compile - all classes are up to date
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  2.375 s
-[INFO] Finished at: 2025-12-30T21:51:05Z
-[INFO] ------------------------------------------------------------------------
+version https://git-lfs.github.com/spec/v1
+oid sha256:f6605bb27fd99d7356c646ad357c7e2ba761de3f98dbdabb7a82379c1314d094
+size 1306

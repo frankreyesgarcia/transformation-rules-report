@@ -1,36 +1,3 @@
-[INFO] Scanning for projects...
-[WARNING] 
-[WARNING] Some problems were encountered while building the effective model for org.assertj:assertj-vavr:jar:0.4.3-SNAPSHOT
-[WARNING] The expression ${inceptionYear} is deprecated. Please use ${project.inceptionYear} instead.
-[WARNING] 
-[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
-[WARNING] 
-[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
-[WARNING] 
-[INFO] Inspecting build with total of 1 modules...
-[INFO] Installing Nexus Staging features:
-[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
-[INFO] 
-[INFO] ----------------------< org.assertj:assertj-vavr >----------------------
-[INFO] Building AssertJ fluent assertions for Vavr 0.4.3-SNAPSHOT
-[INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- enforcer:3.0.0:enforce (enforce-maven) @ assertj-vavr ---
-[INFO] 
-[INFO] --- jacoco:0.8.8:prepare-agent (prepare-agent) @ assertj-vavr ---
-[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/workspace/assertj-vavr/target/jacoco.exec
-[INFO] 
-[INFO] --- resources:3.2.0:resources (default-resources) @ assertj-vavr ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] Using 'UTF-8' encoding to copy filtered properties files.
-[INFO] skip non existing resourceDirectory /workspace/assertj-vavr/src/main/resources
-[INFO] 
-[INFO] --- compiler:3.10.1:compile (default-compile) @ assertj-vavr ---
-[INFO] Nothing to compile - all classes are up to date
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  2.955 s
-[INFO] Finished at: 2025-12-30T14:33:02Z
-[INFO] ------------------------------------------------------------------------
+version https://git-lfs.github.com/spec/v1
+oid sha256:b84601038c368e6be3cabd0a6fc7177216f495ce1196cfe0002be4a827bf8d58
+size 2056

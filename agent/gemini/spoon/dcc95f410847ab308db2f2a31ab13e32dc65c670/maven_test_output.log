@@ -1,25 +1,3 @@
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] ---------------------< uk.gov.pay:pay-adminusers >----------------------
-[INFO] Building pay-adminusers 0.1-SNAPSHOT
-[INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- resources:3.3.0:copy-resources (copy-resources) @ pay-adminusers ---
-[INFO] Copying 5 resources
-[INFO] 
-[INFO] --- resources:3.3.0:resources (default-resources) @ pay-adminusers ---
-[INFO] Copying 93 resources
-[INFO] 
-[INFO] --- compiler:3.10.1:compile (default-compile) @ pay-adminusers ---
-[INFO] Nothing to compile - all classes are up to date
-[INFO] 
-[INFO] --- swagger:2.2.7:resolve (default) @ pay-adminusers ---
-[INFO] Resolving OpenAPI specification..
-[INFO] YAML output: /workspace/pay-adminusers/openapi/adminusers_spec.yaml
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  6.906 s
-[INFO] Finished at: 2025-12-30T22:01:00Z
-[INFO] ------------------------------------------------------------------------
+version https://git-lfs.github.com/spec/v1
+oid sha256:d031d23934fb0c32436046b44aa11cefa1d9fd21beff8a0b341d6188b2882f94
+size 1150

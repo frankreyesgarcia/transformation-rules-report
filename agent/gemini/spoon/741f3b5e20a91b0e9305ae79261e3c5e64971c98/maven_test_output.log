@@ -1,22 +1,3 @@
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] ----------------< io.simplelocalize:simplelocalize-cli >----------------
-[INFO] Building simplelocalize-cli 2.0.6
-[INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- jacoco:0.8.7:prepare-agent (default-prepare-agent) @ simplelocalize-cli ---
-[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/workspace/simplelocalize-cli/target/jacoco.exec
-[INFO] 
-[INFO] --- resources:3.1.0:resources (default-resources) @ simplelocalize-cli ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] Copying 1 resource
-[INFO] 
-[INFO] --- compiler:3.8.1:compile (default-compile) @ simplelocalize-cli ---
-[INFO] Nothing to compile - all classes are up to date
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  2.802 s
-[INFO] Finished at: 2025-12-30T17:02:32Z
-[INFO] ------------------------------------------------------------------------
+version https://git-lfs.github.com/spec/v1
+oid sha256:51f2ecb75e9800b83f7fbb94275019bc4e318638baa5e862aa5e2c56dcee3b57
+size 1183
