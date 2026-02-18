@@ -11,7 +11,20 @@ class DockerOps:
     def run(cmd: List[str]) -> subprocess.CompletedProcess:
         return subprocess.run(cmd, text=True, capture_output=True)
 
+    def image_exists(self, image_ref: str, commit_id: str) -> bool:
+        """Check if a Docker image is already available locally."""
+        result = self.run(["docker", "image", "inspect", image_ref])
+        exists = result.returncode == 0
+        if exists:
+            logging.info(f"[{commit_id}] Docker image {image_ref} already present locally")
+        else:
+            logging.info(f"[{commit_id}] Docker image {image_ref} not found locally")
+        return exists
+
     def pull_image(self, image_ref: str, commit_id: str) -> bool:
+        """Ensure a Docker image is available locally, pulling it only if missing."""
+        if self.image_exists(image_ref, commit_id):
+            return True
         logging.info(f"[{commit_id}] Pulling Docker image {image_ref}")
         result = self.run(["docker", "pull", image_ref])
         if result.returncode != 0:
@@ -47,6 +60,16 @@ class DockerOps:
             return False
         import os as _os
         logging.info(f"[{commit_id}] Project extracted to {_os.path.join(dest_parent, _os.path.basename(src_path))}")
+        return True
+
+    def copy_to_container(self, src_path: str, container_name: str, dest_path: str, commit_id: str) -> bool:
+        """Copy files from host to container."""
+        logging.info(f"[{commit_id}] Copying {src_path} to container {container_name}:{dest_path}")
+        result = self.run(["docker", "cp", src_path, f"{container_name}:{dest_path}"])
+        if result.returncode != 0:
+            logging.error(f"[{commit_id}] Docker cp to container failed: {result.stderr.strip()}")
+            return False
+        logging.info(f"[{commit_id}] File copied to container successfully")
         return True
 
     def exec_in_container(self, container_name: str, cmd: List[str], commit_id: str) -> Tuple[bool, str]:

@@ -98,10 +98,86 @@ class CommitProcessor:
 
         # Compile template with Maven (always do this)
         compile_success = self.template_adjuster.compile_template(
-            commit_id, combined_commit_folder
+            commit_id, combined_commit_folder, project_id
         )
 
-        # Save compilation status to JSON
+        # Run project tests inside the Docker image (creates test logs)
+        self._run_project_tests(commit_id, combined_commit_folder, project_id)
+
+        # Save compilation status to JSON (includes failureCategory derived from test log)
         self.status_recorder.save_status(
             commit_id, combined_commit_folder, compile_success
         )
+
+    def _run_project_tests(self, commit_id: str, combined_commit_folder: str, project_id: str) -> None:
+        """Create a container from the benchmark Docker image, overwrite the project at root,
+        run `mvn test`, and copy the test log back into the combined output folder."""
+        try:
+            _, docker_image = self.metadata_loader.load_metadata(commit_id)
+        except Exception as e:
+            logging.warning(f"[{commit_id}] Could not load Docker image for tests: {e} - skipping mvn test")
+            return
+
+        if not self.docker.pull_image(docker_image, commit_id):
+            logging.warning(f"[{commit_id}] Failed to pull Docker image for tests - skipping mvn test")
+            return
+
+        container_name = self.docker.create_container(docker_image, commit_id)
+        if not container_name:
+            logging.warning(f"[{commit_id}] Failed to create Docker container for tests - skipping mvn test")
+            return
+
+        project_root = os.path.join(combined_commit_folder, project_id)
+        if not os.path.isdir(project_root):
+            logging.warning(f"[{commit_id}] Project root not found at {project_root} - skipping mvn test")
+            return
+
+        try:
+            # First, run mvn test on the original project inside the container
+            pre_test_cmd = f"cd /{project_id} && mvn test"
+            pre_ok, pre_output = self.docker.exec_in_container(
+                container_name,
+                ["sh", "-c", pre_test_cmd],
+                commit_id,
+            )
+            pre_log_file = os.path.join(combined_commit_folder, "pre-modification.log")
+            with open(pre_log_file, "w", encoding="utf-8") as f:
+                f.write(pre_output)
+            if pre_ok:
+                logging.info(f"[{commit_id}] Pre-modification mvn test completed successfully; log saved to {pre_log_file}")
+            else:
+                logging.warning(f"[{commit_id}] Pre-modification mvn test failed; log saved to {pre_log_file}")
+
+            # Remove existing project path inside the container, then copy the updated project there
+            rm_ok, _ = self.docker.exec_in_container(
+                container_name,
+                ["sh", "-c", f"rm -rf /{project_id}"],
+                commit_id,
+            )
+            if not rm_ok:
+                logging.warning(f"[{commit_id}] Failed to remove existing /{project_id} in container - tests may be inconsistent")
+
+            if not self.docker.copy_to_container(project_root, container_name, f"/{project_id}", commit_id):
+                logging.warning(f"[{commit_id}] Failed to copy project into container - skipping mvn test")
+                return
+
+            # Run mvn test inside the project directory
+            test_cmd = f"cd /{project_id} && mvn test"
+            ok, output = self.docker.exec_in_container(
+                container_name,
+                ["sh", "-c", test_cmd],
+                commit_id,
+            )
+
+            # Save test log regardless of success (after modifications)
+            log_file = os.path.join(combined_commit_folder, "after-modifications.log")
+            with open(log_file, "w", encoding="utf-8") as f:
+                f.write(output)
+
+            if ok:
+                logging.info(f"[{commit_id}] mvn test completed successfully; log saved to {log_file}")
+            else:
+                logging.warning(f"[{commit_id}] mvn test failed; log saved to {log_file}")
+        finally:
+            # Intentionally keep the container alive for inspection instead of removing it.
+            logging.info(f"[{commit_id}] Keeping test container {container_name} alive for inspection")

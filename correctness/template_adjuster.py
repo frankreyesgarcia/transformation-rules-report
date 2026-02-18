@@ -1,4 +1,5 @@
 import logging
+import json
 import os
 import re
 import shutil
@@ -119,12 +120,26 @@ class TemplateAdjuster:
                                 "            () -> new SniperJavaPrettyPrinter(launcher.getEnvironment())",
                                 "        );",
                             ]
-                            # Try to insert before launcher.buildModel(), otherwise before last closing brace
                             insert_idx = None
+                            # Prefer to insert immediately after the Launcher declaration
+                            launcher_decl_pattern = re.compile(r"\bLauncher\s+launcher\s*=")
                             for i, line in enumerate(lines):
-                                if "launcher.buildModel()" in line:
-                                    insert_idx = i
+                                if launcher_decl_pattern.search(line):
+                                    insert_idx = i + 1
                                     break
+                            if insert_idx is None:
+                                # Fallback: insert immediately after the first addInputResource call
+                                add_input_pattern = re.compile(r"launcher\.addInputResource\(")
+                                for i, line in enumerate(lines):
+                                    if add_input_pattern.search(line):
+                                        insert_idx = i + 1
+                                        break
+                            if insert_idx is None:
+                                # Next fallback: insert before launcher.buildModel()
+                                for i, line in enumerate(lines):
+                                    if "launcher.buildModel()" in line:
+                                        insert_idx = i
+                                        break
                             if insert_idx is None:
                                 # Fallback: before last closing brace
                                 for i in range(len(lines) - 1, -1, -1):
@@ -145,7 +160,7 @@ class TemplateAdjuster:
                 except Exception as e:
                     logging.warning(f"[{commit_id}] Failed to adjust inputs/outputs in {java_path}: {e}")
 
-    def compile_template(self, commit_id: str, combined_commit_folder: str) -> bool:
+    def compile_template(self, commit_id: str, combined_commit_folder: str, project_id: str) -> bool:
         """Compile and run adjusted template with Maven on the host.
 
         Returns True if compilation and execution were successful.
@@ -205,6 +220,7 @@ class TemplateAdjuster:
         # If execution succeeded and we have transformed files, run diffs vs originals
         if compile_success:
             self._run_diffs(commit_id, combined_commit_folder)
+            self._replace_project_files_with_transformed(commit_id, combined_commit_folder, project_id)
 
         return compile_success
 
@@ -288,4 +304,92 @@ class TemplateAdjuster:
                     logging.warning(
                         f"[{commit_id}] Error while running diff for {original_path} vs {transformed_path}: {e}"
                     )
+
+    def _replace_project_files_with_transformed(
+        self, commit_id: str, combined_commit_folder: str, project_id: str
+    ) -> None:
+        """Overwrite project files with the transformed versions.
+
+        Uses `rules/breaking-classifier-report.json` to find the real file locations in the
+        copied project, and maps them to the corresponding transformed output under `rules/transformed/`.
+        """
+        rules_root = os.path.join(combined_commit_folder, "rules")
+        transformed_root = os.path.join(rules_root, "transformed")
+        classifier_report_path = os.path.join(rules_root, "breaking-classifier-report.json")
+        project_root = os.path.join(combined_commit_folder, project_id)
+
+        if not os.path.isdir(transformed_root):
+            logging.info(f"[{commit_id}] No transformed directory at {transformed_root} - skipping replacement")
+            return
+        if not os.path.isfile(classifier_report_path):
+            logging.info(f"[{commit_id}] No classifier report at {classifier_report_path} - skipping replacement")
+            return
+        if not os.path.isdir(project_root):
+            logging.warning(f"[{commit_id}] Project root not found at {project_root} - skipping replacement")
+            return
+
+        try:
+            with open(classifier_report_path, "r", encoding="utf-8") as f:
+                report = json.load(f)
+        except Exception as e:
+            logging.warning(f"[{commit_id}] Failed to read classifier report for replacement: {e}")
+            return
+
+        errors_by_file = report.get("errorsByFile", [])
+        if not isinstance(errors_by_file, list) or not errors_by_file:
+            logging.info(f"[{commit_id}] No errorsByFile entries - skipping replacement")
+            return
+
+        replaced = 0
+        missing = 0
+
+        for entry in errors_by_file:
+            if not isinstance(entry, dict):
+                continue
+            file_path = entry.get("filePath")
+            if not isinstance(file_path, str) or not file_path.endswith(".java"):
+                continue
+
+            # file_path is typically like "/<project_id>/.../src/main/java/pkg/Foo.java"
+            # Build the destination path inside the copied project.
+            norm = file_path.strip()
+            if norm.startswith(f"/{project_id}/"):
+                rel_in_project = norm[len(f"/{project_id}/") :]
+            else:
+                rel_in_project = norm.lstrip("/")
+
+            dest_path = os.path.join(project_root, rel_in_project.replace("/", os.sep))
+
+            # Map to transformed path: strip module prefix and src/*/java segment if present.
+            markers = ("src/main/java/", "src/test/java/")
+            package_rel = None
+            for m in markers:
+                if m in rel_in_project:
+                    package_rel = rel_in_project.split(m, 1)[1]
+                    break
+            if package_rel is None:
+                # Fallback: strip up to the last "/java/" segment if present
+                if "/java/" in rel_in_project:
+                    package_rel = rel_in_project.split("/java/", 1)[1]
+                else:
+                    package_rel = rel_in_project
+
+            transformed_path = os.path.join(transformed_root, package_rel.replace("/", os.sep))
+
+            if not os.path.isfile(transformed_path):
+                missing += 1
+                logging.warning(
+                    f"[{commit_id}] Transformed file not found for {file_path}: expected {transformed_path}"
+                )
+                continue
+
+            try:
+                os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+                shutil.copy2(transformed_path, dest_path)
+                replaced += 1
+                logging.info(f"[{commit_id}] Replaced project file {dest_path} with transformed output")
+            except Exception as e:
+                logging.warning(f"[{commit_id}] Failed to replace {dest_path} with {transformed_path}: {e}")
+
+        logging.info(f"[{commit_id}] Replacement done: replaced={replaced} missing_transformed={missing}")
 
