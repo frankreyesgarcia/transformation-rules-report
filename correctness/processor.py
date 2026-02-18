@@ -1,11 +1,12 @@
 import logging
 import os
 import shutil
-import json
 from dataclasses import dataclass
 
 from .metadata_loader import BenchmarkMetadataLoader
 from .docker_ops import DockerOps
+from .template_adjuster import TemplateAdjuster, TemplateAdjusterContext
+from .status_recorder import CompilationStatusRecorder, StatusRecorderContext
 
 
 @dataclass
@@ -24,6 +25,12 @@ class CommitProcessor:
         self.context = context
         self.metadata_loader = BenchmarkMetadataLoader(context.benchmark_folder)
         self.docker = DockerOps()
+        self.template_adjuster = TemplateAdjuster(
+            TemplateAdjusterContext(engine=context.engine)
+        )
+        self.status_recorder = CompilationStatusRecorder(
+            StatusRecorderContext(engine=context.engine)
+        )
 
     def process(self, commit_id: str) -> None:
         logging.info(f"[{commit_id}] ==== Processing commit ====")
@@ -84,106 +91,17 @@ class CommitProcessor:
         else:
             logging.warning(f"[{commit_id}] Rules source not found: {rules_src}")
 
+        # Prepare a per-commit copy of the template with updated input resources
+        self.template_adjuster.prepare_adjusted_template(
+            commit_id, combined_commit_folder, project_id
+        )
+
         # Compile template with Maven (always do this)
-        compile_success = self._compile_template(commit_id, combined_commit_folder)
-        
+        compile_success = self.template_adjuster.compile_template(
+            commit_id, combined_commit_folder
+        )
+
         # Save compilation status to JSON
-        self._save_compilation_status(commit_id, combined_commit_folder, compile_success)
-
-    def _compile_template(self, commit_id: str, combined_commit_folder: str) -> bool:
-        """Compile template with Maven on the host. Returns True if compilation was successful."""
-        template_name = f"{self.context.engine}-base-template"
-        template_path = os.path.join(combined_commit_folder, "rules", template_name)
-        
-        if not os.path.isdir(template_path):
-            logging.warning(f"[{commit_id}] Template not found at {template_path} - skipping compilation")
-            return False
-        
-        logging.info(f"[{commit_id}] Compiling {self.context.engine} template on host at {template_path}")
-
-        import subprocess
-
-        compile_success = False
-        output_lines = []
-        try:
-            result = subprocess.run(
-                ["mvn", "compile"],
-                cwd=template_path,
-                text=True,
-                capture_output=True,
-                check=False,
-            )
-            output = (result.stdout or "") + "\n" + (result.stderr or "")
-            output_lines = output.split("\n")
-            compile_success = result.returncode == 0
-
-            if not compile_success:
-                logging.warning(f"[{commit_id}] Maven compilation had issues (exit code {result.returncode})")
-                output_lines.insert(0, f"[{commit_id}] Compilation completed with warnings/errors\n")
-            else:
-                logging.info(f"[{commit_id}] Maven compilation completed successfully")
-                output_lines.insert(0, f"[{commit_id}] Compilation completed successfully\n")
-        except Exception as e:
-            logging.error(f"[{commit_id}] Compilation error: {e}")
-            output_lines = [f"[{commit_id}] Compilation error: {str(e)}"]
-            compile_success = False
-
-        # Save compilation log
-        log_file = os.path.join(combined_commit_folder, f"{self.context.engine}-build.log")
-        with open(log_file, "w", encoding="utf-8") as f:
-            f.write("\n".join(output_lines))
-        logging.info(f"[{commit_id}] Build log saved to {log_file}")
-        
-        return compile_success
-
-    def _save_compilation_status(self, commit_id: str, combined_commit_folder: str, compile_success: bool) -> None:
-        """Save compilation status to central JSON file. Structure: { commitId: { compile: true/false, errorsByFileCount?: int } }"""
-        # Default status with compilation result
-        status_data = {
-            "compile_success": compile_success
-        }
-
-        # Optionally enrich with number of files and file names in breaking-classifier-report.json
-        try:
-            classifier_report_path = os.path.join(
-                combined_commit_folder, "rules", "breaking-classifier-report.json"
-            )
-            if os.path.isfile(classifier_report_path):
-                with open(classifier_report_path, "r", encoding="utf-8") as f:
-                    report = json.load(f)
-                errors_by_file = report.get("errorsByFile", [])
-                if isinstance(errors_by_file, list):
-                    status_data["errorsByFileCount"] = len(errors_by_file)
-                    # Collect file paths (if present) for each entry
-                    file_names = []
-                    for entry in errors_by_file:
-                        if isinstance(entry, dict):
-                            path = entry.get("filePath")
-                            if isinstance(path, str):
-                                file_names.append(path)
-                    if file_names:
-                        status_data["errorFiles"] = file_names
-        except Exception as e:
-            logging.warning(f"[{commit_id}] Failed to read breaking-classifier-report.json: {e}")
-        
-        # Central status file in combined_output_folder root
-        central_status_file = os.path.join(os.path.dirname(combined_commit_folder), "compilation-results.json")
-        
-        try:
-            # Read existing data if file exists
-            if os.path.isfile(central_status_file):
-                with open(central_status_file, "r", encoding="utf-8") as f:
-                    all_status = json.load(f)
-            else:
-                all_status = {}
-            
-            # Update with current commit
-            all_status[commit_id] = status_data
-            
-            # Write back to file
-            with open(central_status_file, "w", encoding="utf-8") as f:
-                json.dump(all_status, f, indent=2)
-            
-            logging.info(f"[{commit_id}] Compilation status saved to {central_status_file}")
-        except Exception as e:
-            logging.error(f"[{commit_id}] Failed to save compilation status: {e}")
+        self.status_recorder.save_status(
+            commit_id, combined_commit_folder, compile_success
+        )
