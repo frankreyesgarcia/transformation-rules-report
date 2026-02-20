@@ -1,6 +1,7 @@
 import logging
 import os
 import shutil
+import json
 from dataclasses import dataclass
 
 from .metadata_loader import BenchmarkMetadataLoader
@@ -16,6 +17,8 @@ class ProcessingContext:
     projects_output_folder: str
     combined_output_folder: str
     engine: str
+    # If True, skip commits that already have an entry in compilation-results.json
+    skip_existing_commits: bool = False
 
 
 class CommitProcessor:
@@ -35,6 +38,23 @@ class CommitProcessor:
     def process(self, commit_id: str) -> None:
         logging.info(f"[{commit_id}] ==== Processing commit ====")
 
+        # Optionally skip commits already present in compilation-results.json
+        if self.context.skip_existing_commits:
+            central_status_file = os.path.join(
+                self.context.combined_output_folder, "compilation-results.json"
+            )
+            if os.path.isfile(central_status_file):
+                try:
+                    with open(central_status_file, "r", encoding="utf-8") as f:
+                        all_status = json.load(f)
+                    if commit_id in all_status:
+                        logging.info(
+                            f"[{commit_id}] Already in compilation-results.json - skipping (skip_existing_commits=True)"
+                        )
+                        return
+                except Exception as e:
+                    logging.warning(f"[{commit_id}] Could not check compilation-results.json: {e}")
+
         # Load project ID - will raise FileNotFoundError if JSON is missing
         project_id = self.metadata_loader.load_project_id(commit_id)
         logging.info(f"[{commit_id}] Loaded project ID: {project_id}")
@@ -44,6 +64,9 @@ class CommitProcessor:
         if os.path.exists(combined_commit_folder):
             logging.info(f"[{commit_id}] Removing existing combined folder: {combined_commit_folder}")
             shutil.rmtree(combined_commit_folder)
+
+        # Clear any previous entry for this commit in the central results JSON
+        self._clear_compilation_status_entry(commit_id, combined_commit_folder)
 
         # Check if project already exists in projects output folder
         projects_commit_folder = os.path.join(self.context.projects_output_folder, commit_id)
@@ -101,13 +124,35 @@ class CommitProcessor:
             commit_id, combined_commit_folder, project_id
         )
 
-        # Run project tests inside the Docker image (creates test logs)
-        self._run_project_tests(commit_id, combined_commit_folder, project_id)
+        # Run project tests inside the Docker image (creates test logs) only if rules were executed
+        # (compile_success will be False for NO_RULES and for rule compilation/execution failures)
+        if compile_success:
+            self._run_project_tests(commit_id, combined_commit_folder, project_id)
 
         # Save compilation status to JSON (includes failureCategory derived from test log)
         self.status_recorder.save_status(
             commit_id, combined_commit_folder, compile_success
         )
+
+    def _clear_compilation_status_entry(self, commit_id: str, combined_commit_folder: str) -> None:
+        """Remove any existing entry for this commit from compilation-results.json.
+
+        Useful when re-running a specific commit so that stale data does not remain
+        if the new run fails before saving status.
+        """
+        central_status_file = os.path.join(os.path.dirname(combined_commit_folder), "compilation-results.json")
+        if not os.path.isfile(central_status_file):
+            return
+        try:
+            with open(central_status_file, "r", encoding="utf-8") as f:
+                all_status = json.load(f)
+            if commit_id in all_status:
+                del all_status[commit_id]
+                with open(central_status_file, "w", encoding="utf-8") as f:
+                    json.dump(all_status, f, indent=2)
+                logging.info(f"[{commit_id}] Removed previous entry from {central_status_file}")
+        except Exception as e:
+            logging.warning(f"[{commit_id}] Failed to clear previous compilation status: {e}")
 
     def _run_project_tests(self, commit_id: str, combined_commit_folder: str, project_id: str) -> None:
         """Create a container from the benchmark Docker image, overwrite the project at root,
@@ -161,7 +206,7 @@ class CommitProcessor:
                 logging.warning(f"[{commit_id}] Failed to copy project into container - skipping mvn test")
                 return
 
-            # Run mvn test inside the project directory
+            # Run mvn test inside the project directory (after modifications)
             test_cmd = f"cd /{project_id} && mvn test"
             ok, output = self.docker.exec_in_container(
                 container_name,

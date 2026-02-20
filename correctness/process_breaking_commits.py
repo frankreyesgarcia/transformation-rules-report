@@ -26,6 +26,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("combined_output_folder", help="Base output directory for combined projects and rules")
     parser.add_argument("--engine", dest="engine", choices=["spoon", "javaparser"], required=True, help="Rules engine: spoon or javaparser")
     parser.add_argument("--specific_commit", dest="specific_commit", default=None, help="If provided, process only this commitId")
+    parser.add_argument("--skip_existing_commits", dest="skip_existing_commits", action="store_true", help="Skip commits that already have an entry in compilation-results.json")
     return parser.parse_args()
 
 
@@ -68,6 +69,7 @@ def main() -> None:
             projects_output_folder=projects_output_folder,
             combined_output_folder=combined_output_folder,
             engine=engine,
+            skip_existing_commits=args.skip_existing_commits,
         )
     )
 

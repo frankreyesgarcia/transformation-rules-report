@@ -61,138 +61,193 @@ class CompilationStatusRecorder:
         except Exception as e:
             logging.warning(f"[{commit_id}] Failed to read breaking-classifier-report.json: {e}")
 
-        # Also record the original input resources found in the base template Main.java
+        # Also record the original input resources found anywhere in the base template
         try:
             base_template_name = f"{self.context.engine}-base-template"
-            main_java_path = os.path.join(
+            base_src_root = os.path.join(
                 combined_commit_folder,
                 "rules",
                 base_template_name,
                 "src",
                 "main",
                 "java",
-                "github",
-                "chains",
-                "Main.java",
             )
-            if os.path.isfile(main_java_path):
-                with open(main_java_path, "r", encoding="utf-8") as f:
-                    main_src = f.read()
-                matches = re.findall(r'launcher\.addInputResource\("([^"]+)"\);', main_src)
-                if matches:
-                    status_data["originalTemplateInputs"] = matches
+            original_inputs = []
+            if os.path.isdir(base_src_root):
+                for root, _, files in os.walk(base_src_root):
+                    for name in files:
+                        if not name.endswith(".java"):
+                            continue
+                        java_path = os.path.join(root, name)
+                        try:
+                            with open(java_path, "r", encoding="utf-8") as f:
+                                src = f.read()
+                        except Exception:
+                            continue
+                        matches = re.findall(r'launcher\.addInputResource\("([^"]+)"\);', src)
+                        original_inputs.extend(matches)
+            if original_inputs:
+                # Preserve order but remove duplicates
+                seen = set()
+                deduped = []
+                for path in original_inputs:
+                    if path not in seen:
+                        seen.add(path)
+                        deduped.append(path)
+                status_data["originalTemplateInputs"] = deduped
         except Exception as e:
             logging.warning(f"[{commit_id}] Failed to read original template inputs: {e}")
 
-        # And record the adjusted input resources from the adjusted template Main.java
+        # And record the adjusted input resources from anywhere in the adjusted template
         try:
             adjusted_template_name = f"{self.context.engine}-base-template-adjusted"
-            adjusted_main_path = os.path.join(
+            adjusted_src_root = os.path.join(
                 combined_commit_folder,
                 "rules",
                 adjusted_template_name,
                 "src",
                 "main",
                 "java",
-                "github",
-                "chains",
-                "Main.java",
             )
-            if os.path.isfile(adjusted_main_path):
-                with open(adjusted_main_path, "r", encoding="utf-8") as f:
-                    adjusted_src = f.read()
-                adjusted_matches = re.findall(
-                    r'launcher\.addInputResource\("([^"]+)"\);', adjusted_src
-                )
-                if adjusted_matches:
-                    status_data["adjustedTemplateInputs"] = adjusted_matches
+            adjusted_inputs = []
+            if os.path.isdir(adjusted_src_root):
+                for root, _, files in os.walk(adjusted_src_root):
+                    for name in files:
+                        if not name.endswith(".java"):
+                            continue
+                        java_path = os.path.join(root, name)
+                        try:
+                            with open(java_path, "r", encoding="utf-8") as f:
+                                src = f.read()
+                        except Exception:
+                            continue
+                        matches = re.findall(
+                            r'launcher\.addInputResource\("([^"]+)"\);', src
+                        )
+                        adjusted_inputs.extend(matches)
+            if adjusted_inputs:
+                seen = set()
+                deduped = []
+                for path in adjusted_inputs:
+                    if path not in seen:
+                        seen.add(path)
+                        deduped.append(path)
+                status_data["adjustedTemplateInputs"] = deduped
         except Exception as e:
             logging.warning(f"[{commit_id}] Failed to read adjusted template inputs: {e}")
 
-        # Derive failure category from post-modification test log (if present)
-        try:
-            test_log_path = os.path.join(
-                combined_commit_folder,
-                "after-modifications.log",
-            )
-            if os.path.isfile(test_log_path):
-                with open(test_log_path, "r", encoding="utf-8") as f:
-                    log_text = f.read()
+        # Derive failure category:
+        # - If rule compilation failed, check if it's NO_RULES, otherwise use RULES_COMPILE_ERROR
+        # - If rule compilation succeeded, derive from post-modification test log
+        failure_category = None
 
-                # Ordered patterns: first match wins
-                failure_patterns = [
-                    # JAVA_VERSION_FAILURE
-                    (
-                        re.compile(
-                            r"(?i)(class file has wrong version (\d+\.\d+), should be (\d+\.\d+))"
-                        ),
-                        "JAVA_VERSION_FAILURE",
-                    ),
-                    # TEST_FAILURE
-                    (
-                        re.compile(
-                            r"(?i)(\[ERROR] Tests run:|There are test failures|There were test failures|"
-                            r"Failed to execute goal org\.apache\.maven\.plugins:maven-surefire-plugin)"
-                        ),
-                        "TEST_FAILURE",
-                    ),
-                    # WERROR_FAILURE
-                    (
-                        re.compile(
-                            r"(?i)(warnings found and -Werror specified)"
-                        ),
-                        "WERROR_FAILURE",
-                    ),
-                    # COMPILATION_FAILURE
-                    (
-                        re.compile(
-                            r"(?i)(COMPILATION ERROR|Failed to execute goal io\.takari\.maven\.plugins:takari-lifecycle-plugin.*?:compile)"
-                            r"|Exit code: COMPILATION_ERROR"
-                        ),
-                        "COMPILATION_FAILURE",
-                    ),
-                    # BUILD_SUCCESS
-                    (
-                        re.compile(r"(?i)(BUILD SUCCESS)"),
-                        "BUILD_SUCCESS",
-                    ),
-                    # ENFORCER_FAILURE
-                    (
-                        re.compile(
-                            r"(?i)(Failed to execute goal org\.apache\.maven\.plugins:maven-enforcer-plugin|"
-                            r"Failed to execute goal org\.jenkins-ci\.tools:maven-hpi-plugin)"
-                        ),
-                        "ENFORCER_FAILURE",
-                    ),
-                    # DEPENDENCY_RESOLUTION_FAILURE
-                    (
-                        re.compile(
-                            r"(?i)(Could not resolve dependencies|\[ERROR] Some problems were encountered while processing the POMs|"
-                            r"\[ERROR] .*?The following artifacts could not be resolved)"
-                        ),
-                        "DEPENDENCY_RESOLUTION_FAILURE",
-                    ),
-                    # DEPENDENCY_LOCK_FAILURE
-                    (
-                        re.compile(
-                            r"(?i)(Failed to execute goal se\.vandmo:dependency-lock-maven-plugin:.*?:check)"
-                        ),
-                        "DEPENDENCY_LOCK_FAILURE",
-                    ),
-                ]
+        # 1) If rule compilation failed, check Spoon build log for NO_RULES marker
+        if not compile_success:
+            try:
+                build_log_path = os.path.join(
+                    combined_commit_folder,
+                    f"{self.context.engine}-build.log",
+                )
+                if os.path.isfile(build_log_path):
+                    with open(build_log_path, "r", encoding="utf-8") as f:
+                        build_log_text = f.read()
+                    if f"[{commit_id}] NO_RULES" in build_log_text:
+                        failure_category = "NO_RULES"
+                    else:
+                        # Rule compilation failed but it's not NO_RULES
+                        failure_category = "RULES_COMPILE_ERROR"
+                else:
+                    # Rule compilation failed but no build log found
+                    failure_category = "RULES_COMPILE_ERROR"
+            except Exception as e:
+                logging.warning(f"[{commit_id}] Failed to inspect build log for NO_RULES: {e}")
+                # Rule compilation failed but couldn't check build log
+                failure_category = "RULES_COMPILE_ERROR"
 
-                failure_category = None
-                for pattern, name in failure_patterns:
-                    if pattern.search(log_text):
-                        failure_category = name
-                        break
+        # 2) If rule compilation succeeded, try to derive from post-modification test log (if present)
+        if failure_category is None:
+            try:
+                test_log_path = os.path.join(
+                    combined_commit_folder,
+                    "after-modifications.log",
+                )
+                if os.path.isfile(test_log_path):
+                    with open(test_log_path, "r", encoding="utf-8") as f:
+                        log_text = f.read()
 
-                if failure_category is None:
-                    failure_category = "UNKNOWN"
+                    # Ordered patterns: first match wins
+                    failure_patterns = [
+                        # JAVA_VERSION_FAILURE
+                        (
+                            re.compile(
+                                r"(?i)(class file has wrong version (\d+\.\d+), should be (\d+\.\d+))"
+                            ),
+                            "JAVA_VERSION_FAILURE",
+                        ),
+                        # TEST_FAILURE
+                        (
+                            re.compile(
+                                r"(?i)(\[ERROR] Tests run:|There are test failures|There were test failures|"
+                                r"Failed to execute goal org\.apache\.maven\.plugins:maven-surefire-plugin)"
+                            ),
+                            "TEST_FAILURE",
+                        ),
+                        # WERROR_FAILURE
+                        (
+                            re.compile(
+                                r"(?i)(warnings found and -Werror specified)"
+                            ),
+                            "WERROR_FAILURE",
+                        ),
+                        # COMPILATION_FAILURE
+                        (
+                            re.compile(
+                                r"(?i)(COMPILATION ERROR|Failed to execute goal io\.takari\.maven\.plugins:takari-lifecycle-plugin.*?:compile)"
+                                r"|Exit code: COMPILATION_ERROR"
+                            ),
+                            "COMPILATION_FAILURE",
+                        ),
+                        # BUILD_SUCCESS
+                        (
+                            re.compile(r"(?i)(BUILD SUCCESS)"),
+                            "BUILD_SUCCESS",
+                        ),
+                        # ENFORCER_FAILURE
+                        (
+                            re.compile(
+                                r"(?i)(Failed to execute goal org\.apache\.maven\.plugins:maven-enforcer-plugin|"
+                                r"Failed to execute goal org\.jenkins-ci\.tools:maven-hpi-plugin)"
+                            ),
+                            "ENFORCER_FAILURE",
+                        ),
+                        # DEPENDENCY_RESOLUTION_FAILURE
+                        (
+                            re.compile(
+                                r"(?i)(Could not resolve dependencies|\[ERROR] Some problems were encountered while processing the POMs|"
+                                r"\[ERROR] .*?The following artifacts could not be resolved)"
+                            ),
+                            "DEPENDENCY_RESOLUTION_FAILURE",
+                        ),
+                        # DEPENDENCY_LOCK_FAILURE
+                        (
+                            re.compile(
+                                r"(?i)(Failed to execute goal se\.vandmo:dependency-lock-maven-plugin:.*?:check)"
+                            ),
+                            "DEPENDENCY_LOCK_FAILURE",
+                        ),
+                    ]
 
-                status_data["failureCategory"] = failure_category
-        except Exception as e:
-            logging.warning(f"[{commit_id}] Failed to derive failure category from test log: {e}")
+                    for pattern, name in failure_patterns:
+                        if pattern.search(log_text):
+                            failure_category = name
+                            break
+            except Exception as e:
+                logging.warning(f"[{commit_id}] Failed to derive failure category from test log: {e}")
+
+        if failure_category is None:
+            failure_category = "UNKNOWN"
+
+        status_data["failureCategory"] = failure_category
 
         # Central status file in combined_output_folder root
         central_status_file = os.path.join(os.path.dirname(combined_commit_folder), "compilation-results.json")

@@ -52,27 +52,58 @@ class TemplateAdjuster:
         # Use POSIX-style path in Java source
         transformed_dir_posix = transformed_dir.replace(os.sep, "/")
 
-        # Helper to map old paths to the copied project location
+        # Helper to map old paths (e.g., /workspace/<project>/...) to the copied project location.
+        # When the path points to a directory (not ending in .java), we also remember it so that
+        # setSourceOutputDirectory can reuse the same directory for in-place transformation.
+        workspace_dir_for_output: str | None = None
+        is_in_place_transformation: bool = False
+
         def _map_input_path(old_path: str) -> str:
+            nonlocal workspace_dir_for_output, is_in_place_transformation
             try:
                 norm = old_path.strip()
+
+                # Case 1: explicit /workspace/<project_id>/... pattern
+                m = re.search(r"/workspace/([^/]+)(/.*)?", norm)
+                if m:
+                    workspace_proj = m.group(1)
+                    rest = m.group(2) or ""
+                    # If the workspace project matches the benchmark project_id, map into the copied project root
+                    if workspace_proj == project_id:
+                        rel = rest.lstrip("/")  # drop leading slash from the "rest"
+                        new_abs = os.path.join(project_root, rel.replace("/", os.sep))
+                        mapped = new_abs.replace(os.sep, "/")
+                        # If this is a directory path (not a specific .java file), remember it for output
+                        if not rel.endswith(".java"):
+                            workspace_dir_for_output = mapped
+                            is_in_place_transformation = True
+                        return mapped
+
+                # Case 2: any path that already contains /<project_id>/ somewhere
                 marker = f"/{project_id}/"
                 if marker in norm:
                     idx = norm.index(marker) + len(marker)
                     relative_part = norm[idx:]
                 else:
+                    # Fallback: treat whole path (without leading slash) as relative to project root
                     relative_part = norm.lstrip("/")
+
                 new_abs = os.path.join(project_root, relative_part.replace("/", os.sep))
-                return new_abs.replace(os.sep, "/")
+                mapped = new_abs.replace(os.sep, "/")
+                if not relative_part.endswith(".java"):
+                    workspace_dir_for_output = mapped
+                    is_in_place_transformation = True
+                return mapped
             except Exception:
                 return old_path
 
         # Walk all .java files in the adjusted template and:
         #  - rewrite launcher.addInputResource("...") to point into the copied project
-        #  - rewrite launcher.setSourceOutputDirectory("...") to point to the per-commit transformed dir
+        #  - rewrite launcher.setSourceOutputDirectory(...) to point to the per-commit transformed dir
         #  - ensure they import SniperJavaPrettyPrinter when they use these APIs
         input_pattern = r'(launcher\.addInputResource\(")([^"]+)("\);)'
-        output_pattern = r'(launcher\.setSourceOutputDirectory\(")([^"]+)("\);)'
+        output_literal_pattern = r'(launcher\.setSourceOutputDirectory\(")([^"]+)("\);)'
+        output_any_pattern = re.compile(r'(launcher\.setSourceOutputDirectory\()([^)]+)(\);)')
 
         for root, _, files in os.walk(adjusted_template_path):
             for filename in files:
@@ -83,16 +114,51 @@ class TemplateAdjuster:
                     with open(java_path, "r", encoding="utf-8") as f:
                         src = f.read()
 
+                    # First, handle the common pattern:
+                    #   String projectPath = "/workspace/<project_id>/...";
+                    #   launcher.addInputResource(projectPath);
+                    # We rewrite the assignment to use the mapped absolute path and
+                    # leave the rest of the line untouched.
+                    var_assign_pattern = re.compile(
+                        r'(String\s+)(\w+)(\s*=\s*")([^"]+)(";\s*)'
+                    )
+
+                    def _repl_var_assign(match: re.Match) -> str:
+                        prefix = match.group(1)
+                        var_name = match.group(2)
+                        pre_eq = match.group(3)
+                        old_literal = match.group(4)
+                        post = match.group(5)
+                        new_literal = _map_input_path(old_literal)
+                        return f'{prefix}{var_name}{pre_eq}{new_literal}{post}'
+
+                    src = var_assign_pattern.sub(_repl_var_assign, src)
+
                     def _repl_input(match: re.Match) -> str:
                         old = match.group(2)
                         new = _map_input_path(old)
                         return f'{match.group(1)}{new}{match.group(3)}'
 
-                    def _repl_output(match: re.Match) -> str:
-                        return f'{match.group(1)}{transformed_dir_posix}{match.group(3)}'
+                    def _repl_output_literal(match: re.Match) -> str:
+                        # If in-place transformation, use the input directory; otherwise use transformed directory
+                        if is_in_place_transformation and workspace_dir_for_output:
+                            output_dir = workspace_dir_for_output.replace(os.sep, "/")
+                        else:
+                            output_dir = transformed_dir_posix
+                        return f'{match.group(1)}{output_dir}{match.group(3)}'
+
+                    def _repl_output_any(match: re.Match) -> str:
+                        # If in-place transformation, use the input directory; otherwise use transformed directory
+                        if is_in_place_transformation and workspace_dir_for_output:
+                            output_dir = workspace_dir_for_output.replace(os.sep, "/")
+                        else:
+                            output_dir = transformed_dir_posix
+                        return f'{match.group(1)}"{output_dir}"{match.group(3)}'
 
                     new_src, count_in = re.subn(input_pattern, _repl_input, src)
-                    new_src, count_out = re.subn(output_pattern, _repl_output, new_src)
+                    new_src, count_out_lit = re.subn(output_literal_pattern, _repl_output_literal, new_src)
+                    new_src, count_out_any = output_any_pattern.subn(_repl_output_any, new_src)
+                    count_out = count_out_lit + count_out_any
 
                     if count_in > 0 or count_out > 0:
                         # If the file uses input/output configuration, make sure it imports SniperJavaPrettyPrinter
@@ -160,10 +226,29 @@ class TemplateAdjuster:
                 except Exception as e:
                     logging.warning(f"[{commit_id}] Failed to adjust inputs/outputs in {java_path}: {e}")
 
+        # Save in-place transformation flag for later use
+        flag_file = os.path.join(combined_commit_folder, "rules", "in-place-flag.json")
+        try:
+            with open(flag_file, "w", encoding="utf-8") as f:
+                json.dump({"is_in_place": is_in_place_transformation}, f)
+            if is_in_place_transformation:
+                logging.info(
+                    f"[{commit_id}] In-place transformation detected - output will be written to input directory"
+                )
+        except Exception as e:
+            logging.warning(f"[{commit_id}] Failed to save in-place flag: {e}")
+
     def compile_template(self, commit_id: str, combined_commit_folder: str, project_id: str) -> bool:
         """Compile and run adjusted template with Maven on the host.
 
-        Returns True if compilation and execution were successful.
+        For Spoon we may have multiple rule entrypoints (classes with main + Spoon inputs/outputs).
+        This method will:
+        - detect which rule mains configure inputs/outputs,
+        - if there are any, run `mvn compile` once, and then
+        - run each such rule main.
+        - if there are none, it will not compile nor execute anything.
+
+        Returns True only if compilation succeeds AND all relevant rule mains execute successfully.
         """
         template_name = f"{self.context.engine}-base-template-adjusted"
         template_path = os.path.join(combined_commit_folder, "rules", template_name)
@@ -174,42 +259,113 @@ class TemplateAdjuster:
             )
             return False
 
-        logging.info(f"[{commit_id}] Compiling & executing {self.context.engine} template on host at {template_path}")
+        logging.info(f"[{commit_id}] Preparing {self.context.engine} template on host at {template_path}")
 
-        compile_success = False
+        overall_success = True
         output_lines: list[str] = []
+
         try:
-            # First, compile and then run Main via the Maven exec plugin
-            result = subprocess.run(
-                [
-                    "mvn",
-                    "-q",
-                    "-DskipTests",
-                    "compile",
-                    "org.codehaus.mojo:exec-maven-plugin:3.5.0:java",
-                    "-Dexec.mainClass=github.chains.Main",
-                ],
+            # 1) Discover rule mains that actually configure inputs/outputs
+            rule_mains: list[str] = []
+            src_root = os.path.join(template_path, "src", "main", "java")
+            if os.path.isdir(src_root):
+                for root, _, files in os.walk(src_root):
+                    for name in files:
+                        if not name.endswith(".java"):
+                            continue
+                        java_path = os.path.join(root, name)
+                        try:
+                            with open(java_path, "r", encoding="utf-8") as f:
+                                src = f.read()
+                        except Exception:
+                            continue
+
+                        # Must have a main method
+                        if "public static void main(String[] args" not in src:
+                            continue
+                        # And must configure Spoon IO (inputs or outputs)
+                        if "launcher.addInputResource(" not in src and "launcher.setSourceOutputDirectory(" not in src:
+                            continue
+
+                        # Derive FQCN from path under src/main/java
+                        rel = os.path.relpath(java_path, src_root)
+                        class_name = rel.replace(os.sep, ".")[:-5]  # strip ".java"
+                        rule_mains.append(class_name)
+
+            if not rule_mains:
+                # No rules with IO => do NOT compile nor execute anything, just record NO_RULES.
+                logging.warning(
+                    f"[{commit_id}] No Spoon rule mains with inputs/outputs found to execute - skipping compilation"
+                )
+                overall_success = False
+                output_lines.append(f"[{commit_id}] NO_RULES")
+
+                log_file = os.path.join(combined_commit_folder, f"{self.context.engine}-build.log")
+                with open(log_file, "w", encoding="utf-8") as f:
+                    f.write("\n".join(output_lines))
+                logging.info(f"[{commit_id}] Build log saved to {log_file}")
+
+                return overall_success
+
+            logging.info(f"[{commit_id}] Will execute rule mains: {', '.join(rule_mains)}")
+
+            # 2) Compile once
+            logging.info(f"[{commit_id}] Running Maven compile for adjusted template")
+            compile_result = subprocess.run(
+                ["mvn", "-q", "-DskipTests", "compile"],
                 cwd=template_path,
                 text=True,
                 capture_output=True,
                 check=False,
             )
-            output = (result.stdout or "") + "\n" + (result.stderr or "")
-            output_lines = output.split("\n")
-            compile_success = result.returncode == 0
+            compile_output = (compile_result.stdout or "") + "\n" + (compile_result.stderr or "")
+            output_lines.extend(compile_output.split("\n"))
 
-            if not compile_success:
+            if compile_result.returncode != 0:
                 logging.warning(
-                    f"[{commit_id}] Maven compilation/execution had issues (exit code {result.returncode})"
+                    f"[{commit_id}] Maven compile had issues (exit code {compile_result.returncode})"
                 )
-                output_lines.insert(0, f"[{commit_id}] Compilation/execution completed with warnings/errors\n")
+                overall_success = False
             else:
-                logging.info(f"[{commit_id}] Maven compilation/execution completed successfully")
-                output_lines.insert(0, f"[{commit_id}] Compilation/execution completed successfully\n")
+                logging.info(f"[{commit_id}] Maven compile completed successfully")
+
+            # 3) Execute each rule main via Maven exec (uses project's runtime classpath)
+            for fqcn in rule_mains:
+                logging.info(f"[{commit_id}] Executing rule main {fqcn}")
+                exec_result = subprocess.run(
+                    [
+                        "mvn",
+                        "-q",
+                        "-DskipTests",
+                        "org.codehaus.mojo:exec-maven-plugin:3.5.0:java",
+                        f"-Dexec.mainClass={fqcn}",
+                    ],
+                    cwd=template_path,
+                    text=True,
+                    capture_output=True,
+                    check=False,
+                )
+                exec_output = (exec_result.stdout or "") + "\n" + (exec_result.stderr or "")
+                output_lines.extend(exec_output.split("\n"))
+
+                if exec_result.returncode != 0:
+                    logging.warning(
+                        f"[{commit_id}] Execution of rule main {fqcn} had issues (exit code {exec_result.returncode})"
+                    )
+                    overall_success = False
+                else:
+                    logging.info(f"[{commit_id}] Execution of rule main {fqcn} completed successfully")
+
+            # Prepend summary line
+            if overall_success:
+                output_lines.insert(0, f"[{commit_id}] Compilation/execution of Spoon rules completed successfully\n")
+            else:
+                output_lines.insert(0, f"[{commit_id}] Compilation/execution of Spoon rules had warnings/errors\n")
+
         except Exception as e:
-            logging.error(f"[{commit_id}] Compilation error: {e}")
-            output_lines = [f"[{commit_id}] Compilation error: {str(e)}"]
-            compile_success = False
+            logging.error(f"[{commit_id}] Compilation/execution error: {e}")
+            output_lines = [f"[{commit_id}] Compilation/execution error: {str(e)}"]
+            overall_success = False
 
         # Save compilation log
         log_file = os.path.join(combined_commit_folder, f"{self.context.engine}-build.log")
@@ -217,12 +373,29 @@ class TemplateAdjuster:
             f.write("\n".join(output_lines))
         logging.info(f"[{commit_id}] Build log saved to {log_file}")
 
-        # If execution succeeded and we have transformed files, run diffs vs originals
-        if compile_success:
-            self._run_diffs(commit_id, combined_commit_folder)
-            self._replace_project_files_with_transformed(commit_id, combined_commit_folder, project_id)
+        # If execution succeeded, check if we need to run diffs/replacement
+        if overall_success:
+            # Check if this is an in-place transformation
+            flag_file = os.path.join(combined_commit_folder, "rules", "in-place-flag.json")
+            is_in_place = False
+            if os.path.isfile(flag_file):
+                try:
+                    with open(flag_file, "r", encoding="utf-8") as f:
+                        flag_data = json.load(f)
+                        is_in_place = flag_data.get("is_in_place", False)
+                except Exception as e:
+                    logging.warning(f"[{commit_id}] Failed to read in-place flag: {e}")
+            
+            if not is_in_place:
+                # Only run diffs and replacement if NOT in-place transformation
+                self._run_diffs(commit_id, combined_commit_folder)
+                self._replace_project_files_with_transformed(commit_id, combined_commit_folder, project_id)
+            else:
+                logging.info(
+                    f"[{commit_id}] In-place transformation detected - skipping diffs and file replacement"
+                )
 
-        return compile_success
+        return overall_success
 
     def _run_diffs(self, commit_id: str, combined_commit_folder: str) -> None:
         """Run diff -w -t between original and transformed Java files and store results under rules/diffs."""
