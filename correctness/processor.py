@@ -156,7 +156,7 @@ class CommitProcessor:
 
     def _run_project_tests(self, commit_id: str, combined_commit_folder: str, project_id: str) -> None:
         """Create a container from the benchmark Docker image, overwrite the project at root,
-        run `mvn test`, and copy the test log back into the combined output folder."""
+        run `mvn test` (pre-modification) and `mvn compile` (post-modification), and copy the logs back into the combined output folder."""
         try:
             _, docker_image = self.metadata_loader.load_metadata(commit_id)
         except Exception as e:
@@ -164,17 +164,17 @@ class CommitProcessor:
             return
 
         if not self.docker.pull_image(docker_image, commit_id):
-            logging.warning(f"[{commit_id}] Failed to pull Docker image for tests - skipping mvn test")
+            logging.warning(f"[{commit_id}] Failed to pull Docker image for tests - skipping mvn test/compile")
             return
 
         container_name = self.docker.create_container(docker_image, commit_id)
         if not container_name:
-            logging.warning(f"[{commit_id}] Failed to create Docker container for tests - skipping mvn test")
+            logging.warning(f"[{commit_id}] Failed to create Docker container for tests - skipping mvn test/compile")
             return
 
         project_root = os.path.join(combined_commit_folder, project_id)
         if not os.path.isdir(project_root):
-            logging.warning(f"[{commit_id}] Project root not found at {project_root} - skipping mvn test")
+            logging.warning(f"[{commit_id}] Project root not found at {project_root} - skipping mvn test/compile")
             return
 
         try:
@@ -203,11 +203,11 @@ class CommitProcessor:
                 logging.warning(f"[{commit_id}] Failed to remove existing /{project_id} in container - tests may be inconsistent")
 
             if not self.docker.copy_to_container(project_root, container_name, f"/{project_id}", commit_id):
-                logging.warning(f"[{commit_id}] Failed to copy project into container - skipping mvn test")
+                logging.warning(f"[{commit_id}] Failed to copy project into container - skipping mvn compile")
                 return
 
-            # Run mvn test inside the project directory (after modifications)
-            test_cmd = f"cd /{project_id} && mvn test"
+            # Run mvn compile inside the project directory (after modifications)
+            test_cmd = f"cd /{project_id} && mvn compile"
             ok, output = self.docker.exec_in_container(
                 container_name,
                 ["sh", "-c", test_cmd],
@@ -220,9 +220,9 @@ class CommitProcessor:
                 f.write(output)
 
             if ok:
-                logging.info(f"[{commit_id}] mvn test completed successfully; log saved to {log_file}")
+                logging.info(f"[{commit_id}] mvn compile completed successfully; log saved to {log_file}")
             else:
-                logging.warning(f"[{commit_id}] mvn test failed; log saved to {log_file}")
+                logging.warning(f"[{commit_id}] mvn compile failed; log saved to {log_file}")
         finally:
             # Intentionally keep the container alive for inspection instead of removing it.
             logging.info(f"[{commit_id}] Keeping test container {container_name} alive for inspection")
