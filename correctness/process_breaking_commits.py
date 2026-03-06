@@ -27,6 +27,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--engine", dest="engine", choices=["spoon", "javaparser"], required=True, help="Rules engine: spoon or javaparser")
     parser.add_argument("--specific_commit", dest="specific_commit", default=None, help="If provided, process only this commitId")
     parser.add_argument("--skip_existing_commits", dest="skip_existing_commits", action="store_true", help="Skip commits that already have an entry in compilation-results.json")
+    parser.add_argument("--no-add-printer", dest="add_printer", action="store_false", default=True, help="Do not add Sniper printer when missing (if present, never change it)")
     return parser.parse_args()
 
 
@@ -70,6 +71,7 @@ def main() -> None:
             combined_output_folder=combined_output_folder,
             engine=engine,
             skip_existing_commits=args.skip_existing_commits,
+            add_printer=args.add_printer,
         )
     )
 

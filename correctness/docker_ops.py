@@ -33,9 +33,32 @@ class DockerOps:
         logging.info(f"[{commit_id}] Pulled image successfully")
         return True
 
-    def create_container(self, image_ref: str, commit_id: str) -> Optional[str]:
-        import uuid
-        container_name = f"breaking-{commit_id[:12]}-{uuid.uuid4().hex[:8]}"
+    def create_container(self, image_ref: str, commit_id: str, engine: Optional[str] = None) -> Optional[str]:
+        # Include engine name in the container to distinguish spoon vs javaparser runs.
+        # For named engines (e.g., "javaparser", "spoon") avoid adding a random hash so
+        # that container names are predictable:
+        #   breaking-javaparser-<commit-prefix>
+        #   breaking-spoon-<commit-prefix>
+        # For other/unknown cases, fall back to the original randomized naming.
+        if engine:
+            engine_suffix = f"-{engine}"
+            container_name = f"breaking{engine_suffix}-{commit_id[:12]}"
+        else:
+            import uuid
+            container_name = f"breaking-{commit_id[:12]}-{uuid.uuid4().hex[:8]}"
+
+        # If a container with this name already exists (from a previous run),
+        # remove it first to avoid name conflicts.
+        existing = self.run(["docker", "ps", "-aq", "-f", f"name=^{container_name}$"])
+        if existing.returncode == 0 and existing.stdout.strip():
+            logging.info(f"[{commit_id}] Removing existing container with name {container_name}")
+            rm_existing = self.run(["docker", "rm", "-f", container_name])
+            if rm_existing.returncode != 0:
+                logging.warning(
+                    f"[{commit_id}] Failed to remove existing container {container_name}: "
+                    f"{rm_existing.stderr.strip()}"
+                )
+
         # Use docker run -d to create and start container in detached mode
         result = self.run(["docker", "run", "-d", "-i", "--name", container_name, image_ref, "sleep", "infinity"])
         if result.returncode != 0:

@@ -19,6 +19,8 @@ class ProcessingContext:
     engine: str
     # If True, skip commits that already have an entry in compilation-results.json
     skip_existing_commits: bool = False
+    # If True, add Sniper printer when missing (never remove or change if already present)
+    add_printer: bool = True
 
 
 class CommitProcessor:
@@ -29,7 +31,7 @@ class CommitProcessor:
         self.metadata_loader = BenchmarkMetadataLoader(context.benchmark_folder)
         self.docker = DockerOps()
         self.template_adjuster = TemplateAdjuster(
-            TemplateAdjusterContext(engine=context.engine)
+            TemplateAdjusterContext(engine=context.engine, add_printer=context.add_printer)
         )
         self.status_recorder = CompilationStatusRecorder(
             StatusRecorderContext(engine=context.engine)
@@ -81,7 +83,7 @@ class CommitProcessor:
                 raise RuntimeError(f"[{commit_id}] Docker image pull failed for {image_ref}")
             logging.info(f"[{commit_id}] Docker image pulled successfully")
 
-            container_name = self.docker.create_container(image_ref, commit_id)
+            container_name = self.docker.create_container(image_ref, commit_id, self.context.engine)
             if not container_name:
                 raise RuntimeError(f"[{commit_id}] Docker container creation failed")
             logging.info(f"[{commit_id}] Docker container created: {container_name}")
@@ -102,14 +104,14 @@ class CommitProcessor:
         project_src = os.path.join(projects_commit_folder, project_id)
         os.makedirs(combined_commit_folder, exist_ok=True)
         combined_project_dest = os.path.join(combined_commit_folder, project_id)
-        shutil.copytree(project_src, combined_project_dest, dirs_exist_ok=True)
+        shutil.copytree(project_src, combined_project_dest, dirs_exist_ok=True, ignore_dangling_symlinks=True)
         logging.info(f"[{commit_id}] Project copied to combined folder: {combined_project_dest}")
 
         # Copy rules to combined output folder in rules subfolder (always do this)
         rules_src = os.path.join(self.context.rules_folder, commit_id)
         if os.path.isdir(rules_src):
             combined_rules_dest = os.path.join(combined_commit_folder, "rules")
-            shutil.copytree(rules_src, combined_rules_dest, dirs_exist_ok=True)
+            shutil.copytree(rules_src, combined_rules_dest, dirs_exist_ok=True, ignore_dangling_symlinks=True)
             logging.info(f"[{commit_id}] Rules copied to combined folder: {combined_rules_dest}")
         else:
             logging.warning(f"[{commit_id}] Rules source not found: {rules_src}")
@@ -167,7 +169,7 @@ class CommitProcessor:
             logging.warning(f"[{commit_id}] Failed to pull Docker image for tests - skipping mvn test/compile")
             return
 
-        container_name = self.docker.create_container(docker_image, commit_id)
+        container_name = self.docker.create_container(docker_image, commit_id, self.context.engine)
         if not container_name:
             logging.warning(f"[{commit_id}] Failed to create Docker container for tests - skipping mvn test/compile")
             return

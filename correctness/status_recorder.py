@@ -84,7 +84,14 @@ class CompilationStatusRecorder:
                                 src = f.read()
                         except Exception:
                             continue
-                        matches = re.findall(r'launcher\.addInputResource\("([^"]+)"\);', src)
+
+                        if self.context.engine == "spoon":
+                            matches = re.findall(r'\w+\.addInputResource\("([^"]+)"\);', src)
+                        else:
+                            # For non-Spoon engines we don't try to infer original inputs
+                            # from code; these will instead be reported via input-mapping.json
+                            # if available.
+                            matches = []
                         original_inputs.extend(matches)
             if original_inputs:
                 # Preserve order but remove duplicates
@@ -121,9 +128,15 @@ class CompilationStatusRecorder:
                                 src = f.read()
                         except Exception:
                             continue
-                        matches = re.findall(
-                            r'launcher\.addInputResource\("([^"]+)"\);', src
-                        )
+
+                        if self.context.engine == "spoon":
+                            matches = re.findall(
+                                r'\w+\.addInputResource\("([^"]+)"\);', src
+                            )
+                        else:
+                            # For non-Spoon engines adjusted inputs will be derived from
+                            # the dedicated input-mapping.json if present.
+                            matches = []
                         adjusted_inputs.extend(matches)
             if adjusted_inputs:
                 seen = set()
@@ -135,6 +148,53 @@ class CompilationStatusRecorder:
                 status_data["adjustedTemplateInputs"] = deduped
         except Exception as e:
             logging.warning(f"[{commit_id}] Failed to read adjusted template inputs: {e}")
+
+        # For JavaParser (and other non-Spoon engines), also record explicit
+        # original/adjusted input mappings, if the template adjuster produced them.
+        if self.context.engine != "spoon":
+            try:
+                mapping_path = os.path.join(
+                    combined_commit_folder,
+                    "rules",
+                    "input-mapping.json",
+                )
+                if os.path.isfile(mapping_path):
+                    with open(mapping_path, "r", encoding="utf-8") as f:
+                        mapping_data = json.load(f)
+                    mappings = mapping_data.get("mappings", [])
+                    if isinstance(mappings, list) and mappings:
+                        # Expose flattened original/adjusted lists for convenience
+                        originals = []
+                        adjusted = []
+                        for entry in mappings:
+                            if not isinstance(entry, dict):
+                                continue
+                            o = entry.get("original")
+                            a = entry.get("adjusted")
+                            if isinstance(o, str):
+                                originals.append(o)
+                            if isinstance(a, str):
+                                adjusted.append(a)
+
+                        if originals:
+                            seen = set()
+                            deduped = []
+                            for p in originals:
+                                if p not in seen:
+                                    seen.add(p)
+                                    deduped.append(p)
+                            status_data["originalTemplateInputs"] = deduped
+
+                        if adjusted:
+                            seen = set()
+                            deduped = []
+                            for p in adjusted:
+                                if p not in seen:
+                                    seen.add(p)
+                                    deduped.append(p)
+                            status_data["adjustedTemplateInputs"] = deduped
+            except Exception as e:
+                logging.warning(f"[{commit_id}] Failed to read explicit input mappings: {e}")
 
         # Derive failure category:
         # - If rule compilation failed, check if it's NO_RULES, otherwise use RULES_COMPILE_ERROR
