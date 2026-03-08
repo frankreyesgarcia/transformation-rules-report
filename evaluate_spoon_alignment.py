@@ -79,10 +79,17 @@ def extract_symbol_from_details(details: list[str]) -> str | None:
     return None
 
 
+TRUSTED_MATCH_TYPES = {"QUALIFIED_FQN"}
+
+
 def collect_errors_with_api_changes(impact: dict) -> list[dict]:
     """
     Return one record per unique (file, errorMessage) pair, each carrying the
-    list of non-UNCHANGED API changes linked to that error.
+    list of API changes linked to that error.
+
+    Only API change entries whose ``matchType`` is in TRUSTED_MATCH_TYPES are
+    included, since lower-confidence matches (NAME_ONLY, CLASS, etc.) introduce
+    too much noise and can produce false-positive coverage signals.
 
     Each record:
         {
@@ -94,6 +101,7 @@ def collect_errors_with_api_changes(impact: dict) -> list[dict]:
                 "qualified":       str,
                 "elementType":     str,
                 "changeStatus":    str,
+                "matchType":       str,
                 "compatibilityType": str,
               }, ...
           ]
@@ -115,6 +123,9 @@ def collect_errors_with_api_changes(impact: dict) -> list[dict]:
             change_impact = err.get("changeImpact") or {}
             for construct in change_impact.get("constructs", []):
                 for api_change in construct.get("apiChanges", []):
+                    match_type = api_change.get("matchType", "")
+                    if match_type not in TRUSTED_MATCH_TYPES:
+                        continue
                     status = api_change.get("changeStatus", "")
                     if status == "UNCHANGED":
                         continue
@@ -128,6 +139,7 @@ def collect_errors_with_api_changes(impact: dict) -> list[dict]:
                         "qualified": qualified,
                         "elementType": element_type,
                         "changeStatus": status,
+                        "matchType": match_type,
                         "compatibilityType": compat_type,
                     })
 
