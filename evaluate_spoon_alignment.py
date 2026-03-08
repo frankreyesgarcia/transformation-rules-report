@@ -79,58 +79,84 @@ def extract_symbol_from_details(details: list[str]) -> str | None:
     return None
 
 
-def collect_api_changes_for_commit(impact: dict) -> list[dict]:
+def collect_errors_with_api_changes(impact: dict) -> list[dict]:
     """
-    Flatten input_change-impact.json into a list of unique API-change records
-    that are REMOVED or MODIFIED (the ones that actually need to be handled).
+    Return one record per unique (file, errorMessage) pair, each carrying the
+    list of non-UNCHANGED API changes linked to that error.
 
     Each record:
         {
-          "name":              str,   # simple name (e.g. "setUseClientMode")
-          "qualified":         str,   # fully qualified signature
-          "elementType":       str,   # METHOD / FIELD / CLASS / CONSTRUCTOR
-          "changeStatus":      str,   # REMOVED / MODIFIED
-          "compatibilityType": str,   # e.g. "METHOD_REMOVED"
-          "file":              str,   # source file that triggered the error
-          "errorMessage":      str,   # compiler error message
+          "file":        str,
+          "errorMessage": str,
+          "api_changes": [
+              {
+                "name":            str,
+                "qualified":       str,
+                "elementType":     str,
+                "changeStatus":    str,
+                "compatibilityType": str,
+              }, ...
+          ]
         }
     """
     seen = set()
-    changes = []
+    errors = []
 
     for file_entry in impact.get("files", []):
         file_path = file_entry.get("filePath", "")
         for err in file_entry.get("errors", []):
             err_msg = err.get("message", "")
+            key = (file_path, err_msg)
+            if key in seen:
+                continue
+            seen.add(key)
+
+            api_changes = []
             change_impact = err.get("changeImpact") or {}
             for construct in change_impact.get("constructs", []):
                 for api_change in construct.get("apiChanges", []):
                     status = api_change.get("changeStatus", "")
-                    if status in ("UNCHANGED",):
-                        continue  # only care about actual breaking changes
-
+                    if status == "UNCHANGED":
+                        continue
                     name = api_change.get("name") or api_change.get("simpleName") or ""
                     qualified = api_change.get("qualifiedSignature") or ""
                     element_type = api_change.get("elementType", "")
                     compat_changes = api_change.get("compatibilityChanges") or []
                     compat_type = compat_changes[0]["type"] if compat_changes else ""
-
-                    key = (qualified or name, file_path)
-                    if key in seen:
-                        continue
-                    seen.add(key)
-
-                    changes.append({
+                    api_changes.append({
                         "name": name,
                         "qualified": qualified,
                         "elementType": element_type,
                         "changeStatus": status,
                         "compatibilityType": compat_type,
-                        "file": file_path,
-                        "errorMessage": err_msg,
                     })
 
-    return changes
+            errors.append({
+                "file": file_path,
+                "errorMessage": err_msg,
+                "api_changes": api_changes,
+            })
+
+    return errors
+
+
+def error_covered(error: dict, classifier_symbol: str | None, sources: dict[str, str]) -> bool:
+    """
+    Return True if the rules address a compilation error.
+
+    An error is considered covered when ANY of the following is true:
+      1. The symbol extracted from the compiler error details appears in the rules.
+      2. At least one non-UNCHANGED API change associated with this error has its
+         symbol (simple or qualified) appearing in the rules.
+    """
+    if symbol_covered(classifier_symbol, sources):
+        return True
+    for api_change in error.get("api_changes", []):
+        if symbol_covered(api_change["name"], sources):
+            return True
+        if symbol_covered(api_change["qualified"], sources):
+            return True
+    return False
 
 
 def symbol_covered(symbol: str, sources: dict[str, str]) -> bool:
@@ -171,13 +197,11 @@ def evaluate_commit(commit_hash: str, commit_dir: Path) -> dict:
         "dependency": None,
         "project": None,
         "total_errors": 0,
-        "total_api_changes_needed": 0,
-        "covered_api_changes": 0,
-        "uncovered_api_changes": 0,
+        "covered_errors": 0,
+        "uncovered_errors": 0,
         "coverage_ratio": 0.0,
         "alignment_verdict": "NO_RULES_FOUND",
         "errors": [],
-        "api_changes": [],
         "processor_files": [],
         "notes": [],
     }
@@ -204,68 +228,57 @@ def evaluate_commit(commit_hash: str, commit_dir: Path) -> dict:
                 "newVersion": dep.get("newVersion"),
             }
 
-    # ---- Errors from classifier --------------------------------------------
+    # ---- Build error records merging classifier + impact -------------------
+    # Index impact errors by (file, message) for quick lookup
+    impact_errors_index: dict[tuple, dict] = {}
+    if impact:
+        for entry in collect_errors_with_api_changes(impact):
+            impact_errors_index[(entry["file"], entry["errorMessage"])] = entry
+
     errors_summary = []
     if classifier:
         for file_entry in classifier.get("errorsByFile", []):
             file_path = file_entry.get("filePath", "")
             for err in file_entry.get("errors", []):
                 details = err.get("details", [])
+                msg = err.get("message", "")
                 symbol = extract_symbol_from_details(details)
-                covered = symbol_covered(symbol, sources) if symbol else False
+
+                # Merge API changes from impact for this specific error
+                impact_entry = impact_errors_index.get((file_path, msg), {})
+                api_changes_for_error = impact_entry.get("api_changes", [])
+
+                covered = error_covered(
+                    {"api_changes": api_changes_for_error},
+                    symbol,
+                    sources,
+                )
 
                 errors_summary.append({
                     "file": file_path,
                     "line": err.get("lineNumber"),
-                    "message": err.get("message"),
-                    "details": details,
+                    "message": msg,
                     "extracted_symbol": symbol,
-                    "symbol_covered_in_rules": covered,
+                    "api_changes": api_changes_for_error,
+                    "covered_in_rules": covered,
                 })
 
     result["errors"] = errors_summary
     result["total_errors"] = len(errors_summary)
+    covered_count = sum(1 for e in errors_summary if e["covered_in_rules"])
+    uncovered_count = len(errors_summary) - covered_count
+    result["covered_errors"] = covered_count
+    result["uncovered_errors"] = uncovered_count
 
-    # ---- API changes from impact -------------------------------------------
-    api_changes = []
-    if impact:
-        raw_changes = collect_api_changes_for_commit(impact)
-        for change in raw_changes:
-            covered = symbol_covered(change["name"], sources)
-            api_changes.append({
-                **change,
-                "covered_in_rules": covered,
-            })
-
-    result["api_changes"] = api_changes
-    result["total_api_changes_needed"] = len(api_changes)
-    covered_count = sum(1 for c in api_changes if c["covered_in_rules"])
-    uncovered_count = len(api_changes) - covered_count
-    result["covered_api_changes"] = covered_count
-    result["uncovered_api_changes"] = uncovered_count
-
-    # ---- Alignment verdict -------------------------------------------------
-    total = len(api_changes)
+    # ---- Alignment verdict (error-based) -----------------------------------
+    total = len(errors_summary)
 
     if not sources:
         verdict = "NO_RULES_FOUND"
         ratio = 0.0
     elif total == 0:
-        # No API changes identified (impact file missing or no changes needed)
-        # Fall back to symbol coverage from classifier details
-        symbols = [e["extracted_symbol"] for e in errors_summary if e["extracted_symbol"]]
-        if not symbols:
-            verdict = "NO_ERRORS_IDENTIFIED"
-            ratio = 0.0
-        else:
-            covered_syms = sum(1 for s in symbols if symbol_covered(s, sources))
-            ratio = covered_syms / len(symbols)
-            if ratio == 1.0:
-                verdict = "FULL"
-            elif ratio >= 0.5:
-                verdict = "PARTIAL"
-            else:
-                verdict = "INSUFFICIENT"
+        verdict = "NO_ERRORS_IDENTIFIED"
+        ratio = 0.0
     else:
         ratio = covered_count / total
         if ratio == 1.0:
@@ -282,11 +295,11 @@ def evaluate_commit(commit_hash: str, commit_dir: Path) -> dict:
     result["coverage_ratio"] = round(ratio, 4)
     result["alignment_verdict"] = verdict
 
-    # ---- Summary note per uncovered change ---------------------------------
-    uncovered_names = [c["name"] for c in api_changes if not c["covered_in_rules"]]
-    if uncovered_names:
+    # ---- Summary note for uncovered errors ---------------------------------
+    uncovered_msgs = [e["message"] for e in errors_summary if not e["covered_in_rules"]]
+    if uncovered_msgs:
         result["notes"].append(
-            f"Uncovered API changes: {', '.join(sorted(set(uncovered_names)))}"
+            f"Uncovered errors: {'; '.join(sorted(set(uncovered_msgs)))}"
         )
 
     return result
@@ -322,8 +335,7 @@ def main():
         status = (
             f"  {commit_hash[:10]}  "
             f"errors={record['total_errors']:2d}  "
-            f"api_changes={record['total_api_changes_needed']:3d}  "
-            f"covered={record['covered_api_changes']:3d}  "
+            f"covered={record['covered_errors']:2d}  "
             f"ratio={record['coverage_ratio']:.2f}  "
             f"{v}"
         )
